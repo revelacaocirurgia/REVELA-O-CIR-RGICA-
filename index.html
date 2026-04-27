@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>REVELAÇÃO CIRÚRGICA</title>
-
 <style>
 * {
   box-sizing: border-box;
@@ -12,75 +11,70 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background:
-    radial-gradient(circle at top left, #e8fbff 0%, transparent 28%),
-    radial-gradient(circle at bottom right, #eafcff 0%, transparent 24%),
-    #f7f8f9;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f6f7;
   color: #111;
-  min-height: 100vh;
 }
 
 .app {
   width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  padding: 26px 16px 40px;
+  padding: 22px 16px 42px;
 }
 
-.status {
+.top-label {
   text-align: center;
   color: #777;
   font-size: 20px;
-  margin-bottom: 22px;
+  margin: 8px 0 18px;
 }
 
 .logo-card {
-  background: white;
+  background: #fff;
   border-radius: 24px;
-  padding: 20px 18px 22px;
-  margin-bottom: 22px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-  border: 1px solid #e7e7e7;
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
+  border: 1px solid #e4e4e4;
   text-align: center;
 }
 
-.scalpel-box {
+.logo-visual {
   width: 100%;
   height: 150px;
   border-radius: 22px;
   background: linear-gradient(135deg, #07131c, #061f2a 45%, #031016);
-  border: 1px solid #36d6e7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 22px;
-  overflow: hidden;
+  border: 1px solid #35d8e8;
   position: relative;
+  overflow: hidden;
+  margin-bottom: 18px;
 }
 
-.scalpel-box:before {
+.logo-visual::before {
   content: "";
   position: absolute;
   width: 140%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #27e4ff, transparent);
-  top: 78px;
+  background: linear-gradient(90deg, transparent, #26e6ff, transparent);
+  top: 76px;
   left: -20%;
   box-shadow: 0 0 22px #20dff8;
 }
 
 .scalpel {
-  position: relative;
-  width: 190px;
+  position: absolute;
+  width: 200px;
   height: 18px;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%) rotate(-24deg);
   background: linear-gradient(90deg, #d9e1e8, #ffffff, #68727d);
   border-radius: 18px;
-  transform: rotate(-24deg);
   box-shadow: 0 0 18px rgba(94,234,212,0.45);
 }
 
-.scalpel:after {
+.scalpel::after {
   content: "";
   position: absolute;
   right: -42px;
@@ -88,30 +82,29 @@ body {
   width: 54px;
   height: 32px;
   background: linear-gradient(90deg, #f8fafc, #9ca3af);
-  border-radius: 0 80% 80% 0;
   clip-path: polygon(0 20%, 100% 50%, 0 80%);
 }
 
-.brand-main {
-  font-size: clamp(32px, 8vw, 48px);
-  letter-spacing: 6px;
+.brand {
+  font-size: clamp(30px, 8vw, 46px);
+  letter-spacing: 5px;
   line-height: 1;
   margin: 0;
   font-weight: 400;
 }
 
-.brand-main span:first-child {
-  color: #10c8d2;
+.brand .cyan {
+  color: #11c8d2;
 }
 
-.brand-main span:last-child {
+.brand .gray {
   color: #5f6368;
 }
 
 .miar {
   margin-top: 16px;
   color: #777;
-  letter-spacing: 7px;
+  letter-spacing: 6px;
   font-size: 17px;
 }
 
@@ -126,80 +119,82 @@ body {
   font-size: 10px;
 }
 
-.reveal-card {
+.panel {
   background: white;
+  border: 1px solid #e4e4e4;
   border-radius: 26px;
-  padding: 24px 20px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
-  border: 1px solid #e3e3e3;
+  padding: 22px 18px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
 }
 
-.reveal-card h1 {
-  font-size: 28px;
+.panel h1 {
+  margin: 4px 0 18px;
   text-align: center;
-  margin: 0 0 20px;
+  font-size: 30px;
+  line-height: 1.1;
 }
 
-.input-box {
+.input-area {
   border: 1px solid #dedede;
   border-radius: 22px;
+  padding: 16px;
   background: #fff;
-  padding: 18px;
-  min-height: 170px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
-.input-box textarea {
+textarea {
   width: 100%;
+  min-height: 124px;
   border: none;
   outline: none;
   resize: none;
-  min-height: 82px;
-  font-size: 19px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
   line-height: 1.45;
   color: #222;
-  font-family: Arial, sans-serif;
 }
 
-.input-box textarea::placeholder {
-  color: #8a8a8a;
+textarea::placeholder {
+  color: #777;
 }
 
-.mode-buttons {
+.inside-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
-.mode {
+.choice {
   border: none;
   border-radius: 16px;
-  padding: 14px 10px;
+  padding: 15px 10px;
+  font-weight: 900;
   font-size: 15px;
-  font-weight: 800;
   cursor: pointer;
 }
 
-.mode.active {
+.choice.primary {
   background: #111;
-  color: white;
+  color: #fff;
 }
 
-.mode:not(.active) {
-  background: #f1f1f1;
+.choice.secondary {
+  background: #f0f0f0;
   color: #111;
 }
 
 .upload {
+  display: block;
+  text-align: center;
   border: 1px solid #dedede;
   border-radius: 18px;
-  padding: 16px;
-  text-align: center;
-  font-weight: 800;
+  padding: 16px 12px;
   font-size: 17px;
+  font-weight: 800;
+  background: #fff;
   margin-bottom: 16px;
-  background: white;
+  cursor: pointer;
 }
 
 .upload input {
@@ -218,50 +213,16 @@ body {
   cursor: pointer;
 }
 
-.result {
-  margin-top: 18px;
-  background: #f7f7f7;
-  border-radius: 18px;
-  padding: 16px;
-  display: none;
-  border: 1px solid #e4e4e4;
-}
-
-.result strong {
-  display: block;
-  margin-bottom: 6px;
-}
-
-.result-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.metric {
-  background: white;
-  border-radius: 14px;
-  padding: 12px;
-  border: 1px solid #e0e0e0;
-}
-
-.metric b {
-  display: block;
-  font-size: 22px;
-  color: #0aa9b5;
-}
-
 .note {
   color: #777;
   text-align: center;
   line-height: 1.5;
   font-size: 15px;
-  margin-top: 18px;
+  margin: 18px 6px 0;
 }
 
 .topics {
-  margin-top: 26px;
+  margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
@@ -269,8 +230,9 @@ body {
 }
 
 .topic {
-  border: 1px solid #d9d9d9;
+  border: 1px solid #d8d8d8;
   background: white;
+  color: #111;
   border-radius: 999px;
   padding: 12px 18px;
   font-size: 16px;
@@ -278,204 +240,259 @@ body {
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
 
-.topic.selected {
+.topic.active {
   background: #111;
   color: white;
   border-color: #111;
 }
 
-.table {
-  margin-top: 22px;
-  background: white;
-  border: 1px solid #e4e4e4;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+.result {
+  display: none;
+  margin-top: 18px;
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+  border-radius: 20px;
+  padding: 16px;
 }
 
-.table-title {
-  padding: 15px;
+.result-title {
   font-weight: 900;
-  text-align: center;
-  background: #f4f4f4;
+  font-size: 18px;
+  margin-bottom: 8px;
 }
 
-.line {
+.result-text {
+  color: #555;
+  line-height: 1.45;
+  font-size: 15px;
+}
+
+.metrics {
   display: grid;
-  grid-template-columns: 1fr 80px 120px;
-  gap: 8px;
-  padding: 12px 14px;
-  border-top: 1px solid #ededed;
-  font-size: 14px;
-  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
 }
 
-.line b {
+.metric {
+  background: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.metric span {
+  display: block;
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.metric b {
+  font-size: 18px;
   color: #0aa9b5;
 }
 
 @media (max-width: 420px) {
-  .brand-main {
-    letter-spacing: 3px;
+  .app {
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
-  .line {
-    grid-template-columns: 1fr;
+  .panel {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .panel h1 {
+    font-size: 28px;
+  }
+
+  textarea {
+    font-size: 19px;
   }
 }
 </style>
 </head>
-
 <body>
 
 <main class="app">
 
-  <div class="status">Projeto em desenvolvimento</div>
+  <div class="top-label">Projeto em desenvolvimento</div>
 
   <section class="logo-card">
-    <div class="scalpel-box">
+    <div class="logo-visual">
       <div class="scalpel"></div>
     </div>
 
-    <h2 class="brand-main">
-      <span>REVELAÇÃO</span><span> CIRÚRGICA</span>
+    <h2 class="brand">
+      <span class="cyan">REVELAÇÃO</span><span class="gray"> CIRÚRGICA</span>
     </h2>
 
     <div class="miar"><strong>MIAR</strong> MAKTUB</div>
     <div class="tagline">FACILITADOR DE VIDA</div>
   </section>
 
-  <section class="reveal-card">
+  <section class="panel">
     <h1>Área de Revelação</h1>
 
-    <div class="input-box">
+    <div class="input-area">
       <textarea id="texto" placeholder="Tire suas dúvidas. Coloque seus arquivos: texto, PDF, áudio e vídeo."></textarea>
 
-      <div class="mode-buttons">
-        <button class="mode active" onclick="setMode('Conjugal', this)">CONJUGAL</button>
-        <button class="mode" onclick="setMode('Enganação', this)">ENGANAÇÃO</button>
+      <div class="inside-buttons">
+        <button class="choice primary" onclick="setMainTopic('Conjugal', this)">CONJUGAL</button>
+        <button class="choice secondary" onclick="setMainTopic('Enganação', this)">ENGANAÇÃO</button>
       </div>
     </div>
 
     <label class="upload">
-      ⬆ Enviar imagem, PDF, áudio ou vídeo
-      <input type="file" id="arquivo" multiple />
+      ⬆ Enviar arquivo
+      <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" />
     </label>
 
     <button class="reveal" onclick="revelar()">🔎 Revelar</button>
 
     <div id="resultado" class="result">
-      <strong id="tituloResultado">Pré-análise</strong>
-      <div id="textoResultado">Selecione um tópico ou envie uma informação para organizar a análise.</div>
+      <div id="resultadoTitulo" class="result-title">Pré-análise</div>
+      <div id="resultadoTexto" class="result-text">
+        Selecione um tópico e envie as informações para organizar a revelação.
+      </div>
 
-      <div class="result-row">
+      <div class="metrics">
         <div class="metric">
-          <span>Índice</span>
-          <b id="percentual">78%</b>
+          <span>%</span>
+          <b id="percentual">A definir</b>
         </div>
-
         <div class="metric">
-          <span>Valor base</span>
-          <b id="valor">R$ 97</b>
+          <span>Valores</span>
+          <b id="valor">A definir</b>
         </div>
       </div>
     </div>
 
     <div class="note">
-      Sistema de organização inicial. Os percentuais e valores são parâmetros editáveis por tópico.
+      Sistema inicial de organização. Os percentuais, valores e regras por tópico ficam prontos para ajuste conforme sua tabela definitiva.
     </div>
   </section>
 
   <section class="topics">
-    <button class="topic" onclick="selectTopic('Empresarial')">Empresarial</button>
-    <button class="topic" onclick="selectTopic('Golpes')">Golpes</button>
-    <button class="topic selected" onclick="selectTopic('Conjugal')">Conjugal</button>
-    <button class="topic" onclick="selectTopic('Enganação')">Enganação</button>
-    <button class="topic" onclick="selectTopic('Familiar')">Familiar</button>
-    <button class="topic" onclick="selectTopic('Pessoal')">Pessoal</button>
-    <button class="topic" onclick="selectTopic('Profissional')">Profissional</button>
-    <button class="topic" onclick="selectTopic('Escolar')">Escolar</button>
-    <button class="topic" onclick="selectTopic('Institucional')">Institucional</button>
-  </section>
-
-  <section class="table">
-    <div class="table-title">% e valores por tópico</div>
-
-    <div class="line"><span>Conjugal</span><b>78%</b><span>R$ 97–297</span></div>
-    <div class="line"><span>Enganação</span><b>84%</b><span>R$ 147–497</span></div>
-    <div class="line"><span>Golpes</span><b>88%</b><span>R$ 197–697</span></div>
-    <div class="line"><span>Empresarial</span><b>72%</b><span>R$ 297–997</span></div>
-    <div class="line"><span>Familiar</span><b>64%</b><span>R$ 97–297</span></div>
-    <div class="line"><span>Profissional</span><b>76%</b><span>R$ 197–797</span></div>
+    <button class="topic" onclick="setTopic('Empresarial', this)">Empresarial</button>
+    <button class="topic" onclick="setTopic('Golpes', this)">Golpes</button>
+    <button class="topic active" onclick="setTopic('Conjugal', this)">Conjugal</button>
+    <button class="topic" onclick="setTopic('Enganação', this)">Enganação</button>
+    <button class="topic" onclick="setTopic('Familiar', this)">Familiar</button>
+    <button class="topic" onclick="setTopic('Pessoal', this)">Pessoal</button>
+    <button class="topic" onclick="setTopic('Profissional', this)">Profissional</button>
+    <button class="topic" onclick="setTopic('Escolar', this)">Escolar</button>
+    <button class="topic" onclick="setTopic('Institucional', this)">Institucional</button>
   </section>
 
 </main>
 
 <script>
-let modoAtual = "Conjugal";
 let topicoAtual = "Conjugal";
 
 const dados = {
-  "Conjugal": { percentual: "78%", valor: "R$ 97", texto: "Análise inicial de vínculo, incoerências, padrões de comunicação e sinais de conflito." },
-  "Enganação": { percentual: "84%", valor: "R$ 147", texto: "Análise inicial de contradições, manipulação, omissões e sinais de narrativa inconsistente." },
-  "Golpes": { percentual: "88%", valor: "R$ 197", texto: "Análise inicial de risco, promessa excessiva, urgência artificial e padrão de fraude." },
-  "Empresarial": { percentual: "72%", valor: "R$ 297", texto: "Análise inicial de risco comercial, proposta, contrato, conduta e tomada de decisão." },
-  "Familiar": { percentual: "64%", valor: "R$ 97", texto: "Análise inicial de dinâmica familiar, tensão, dependência e padrões repetidos." },
-  "Pessoal": { percentual: "58%", valor: "R$ 47", texto: "Organização inicial de dúvida pessoal, contexto, opções e próximos passos." },
-  "Profissional": { percentual: "76%", valor: "R$ 197", texto: "Análise inicial de ambiente profissional, conflito, postura e risco de decisão." },
-  "Escolar": { percentual: "54%", valor: "R$ 47", texto: "Organização inicial de demanda escolar, comportamento, desempenho e orientação." },
-  "Institucional": { percentual: "81%", valor: "R$ 497", texto: "Análise inicial de fluxo institucional, risco, documentação e tomada de decisão." }
+  "Empresarial": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área para análise empresarial: contrato, proposta, sociedade, risco, conduta e decisão."
+  },
+  "Golpes": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área para análise de golpes: promessa, urgência, manipulação, prova, inconsistência e risco."
+  },
+  "Conjugal": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área para análise conjugal: vínculo, confiança, contradições, comportamento, comunicação e sinais de ruptura."
+  },
+  "Enganação": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área para análise de enganação: omissão, incoerência, manipulação, narrativa e padrão repetido."
+  },
+  "Familiar": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área para análise familiar: conflitos, dependências, alianças, tensão e dinâmica de grupo."
+  },
+  "Pessoal": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área pessoal: organização de dúvida, fatos, hipóteses, riscos e próximos passos."
+  },
+  "Profissional": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área profissional: ambiente, conflito, oportunidade, conduta, comunicação e tomada de decisão."
+  },
+  "Escolar": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área escolar: comportamento, aprendizagem, rotina, contexto familiar e orientação inicial."
+  },
+  "Institucional": {
+    percentual: "A definir",
+    valor: "A definir",
+    texto: "Área institucional: fluxo, documento, responsabilidade, risco e encaminhamento."
+  }
 };
-
-function setMode(nome, botao) {
-  modoAtual = nome;
-  topicoAtual = nome;
-
-  document.querySelectorAll(".mode").forEach(b => b.classList.remove("active"));
-  botao.classList.add("active");
-
-  atualizarResultado(nome);
-}
-
-function selectTopic(nome) {
-  topicoAtual = nome;
-
-  document.querySelectorAll(".topic").forEach(b => b.classList.remove("selected"));
-  event.target.classList.add("selected");
-
-  atualizarResultado(nome);
-}
 
 function atualizarResultado(nome) {
   const item = dados[nome];
 
   document.getElementById("resultado").style.display = "block";
-  document.getElementById("tituloResultado").innerText = nome;
-  document.getElementById("textoResultado").innerText = item.texto;
+  document.getElementById("resultadoTitulo").innerText = nome;
+  document.getElementById("resultadoTexto").innerText = item.texto;
   document.getElementById("percentual").innerText = item.percentual;
   document.getElementById("valor").innerText = item.valor;
+}
+
+function setTopic(nome, botao) {
+  topicoAtual = nome;
+
+  document.querySelectorAll(".topic").forEach(function(item) {
+    item.classList.remove("active");
+  });
+
+  botao.classList.add("active");
+  atualizarResultado(nome);
+}
+
+function setMainTopic(nome, botao) {
+  topicoAtual = nome;
+
+  document.querySelectorAll(".choice").forEach(function(item) {
+    item.classList.remove("primary");
+    item.classList.add("secondary");
+  });
+
+  botao.classList.remove("secondary");
+  botao.classList.add("primary");
+
+  atualizarResultado(nome);
 }
 
 function revelar() {
   const texto = document.getElementById("texto").value.trim();
   const arquivos = document.getElementById("arquivo").files.length;
-  const nome = topicoAtual || modoAtual;
-  const item = dados[nome];
-
-  document.getElementById("resultado").style.display = "block";
-  document.getElementById("tituloResultado").innerText = "Revelação: " + nome;
+  const item = dados[topicoAtual];
 
   let resposta = item.texto;
 
   if (texto.length > 0) {
-    resposta += " Texto recebido e organizado para análise.";
+    resposta += " Texto recebido.";
   }
 
   if (arquivos > 0) {
-    resposta += " Arquivo(s) anexado(s): " + arquivos + ".";
+    resposta += " Arquivos anexados: " + arquivos + ".";
   }
 
-  document.getElementById("textoResultado").innerText = resposta;
+  document.getElementById("resultado").style.display = "block";
+  document.getElementById("resultadoTitulo").innerText = "Revelação: " + topicoAtual;
+  document.getElementById("resultadoTexto").innerText = resposta;
   document.getElementById("percentual").innerText = item.percentual;
   document.getElementById("valor").innerText = item.valor;
 }
