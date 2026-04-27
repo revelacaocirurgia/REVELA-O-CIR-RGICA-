@@ -31,8 +31,8 @@ body {
   margin-bottom: 10px;
 }
 
-.login-btn,
-.menu-btn {
+.menu-btn,
+.login-btn {
   border: none;
   background: #ffffff;
   border-radius: 14px;
@@ -74,7 +74,7 @@ body {
   background: #ffffff;
   padding: 13px;
   display: grid;
-  grid-template-columns: 46px 1fr 86px;
+  grid-template-columns: 46px 1fr 88px;
   gap: 10px;
   align-items: stretch;
   min-height: 155px;
@@ -88,9 +88,10 @@ body {
   height: 46px;
   font-size: 30px;
   font-weight: 400;
-  line-height: 1;
+  line-height: 42px;
   cursor: pointer;
   align-self: end;
+  text-align: center;
 }
 
 .plus-btn input {
@@ -140,17 +141,12 @@ textarea::placeholder {
   color: #111111;
 }
 
-.start-btn {
-  width: 100%;
-  border: none;
-  border-radius: 20px;
-  padding: 17px;
-  background: #111111;
-  color: #ffffff;
-  font-size: 20px;
-  font-weight: 900;
-  cursor: pointer;
-  margin-top: 15px;
+.notice {
+  margin-top: 14px;
+  color: #777;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .topics {
@@ -178,6 +174,88 @@ textarea::placeholder {
   border-color: #111111;
 }
 
+.module {
+  display: none;
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.module.show {
+  display: block;
+}
+
+.module h2 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.module p {
+  color: #555;
+  line-height: 1.5;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.step {
+  border: 1px solid #e2e2e2;
+  background: #f8f8f8;
+  border-radius: 18px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.step-title {
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+select,
+input {
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+  padding: 13px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+
+.action-btn {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.black {
+  background: #111111;
+  color: #ffffff;
+}
+
+.gray {
+  background: #eeeeee;
+  color: #111111;
+}
+
+.truth-box {
+  background: #fff7e6;
+  border: 1px solid #f1d08a;
+  border-radius: 16px;
+  padding: 13px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #4d3a10;
+}
+
 .result {
   display: none;
   margin-top: 16px;
@@ -189,7 +267,7 @@ textarea::placeholder {
 
 .percent {
   text-align: center;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 900;
   margin-bottom: 10px;
 }
@@ -228,36 +306,6 @@ textarea::placeholder {
   margin-top: 15px;
 }
 
-.pay-btn,
-.live-btn {
-  width: 100%;
-  border: none;
-  border-radius: 17px;
-  padding: 15px;
-  font-size: 16px;
-  font-weight: 900;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.pay-btn {
-  background: #111111;
-  color: #ffffff;
-}
-
-.live-btn {
-  background: #eeeeee;
-  color: #111111;
-}
-
-.note {
-  color: #777777;
-  text-align: center;
-  font-size: 14px;
-  line-height: 1.45;
-  margin-top: 12px;
-}
-
 .overlay {
   display: none;
   position: fixed;
@@ -273,18 +321,18 @@ textarea::placeholder {
 .drawer {
   position: fixed;
   top: 0;
-  right: -285px;
+  left: -285px;
   width: 280px;
   height: 100vh;
   background: #ffffff;
   z-index: 60;
-  box-shadow: -8px 0 26px rgba(0,0,0,0.18);
+  box-shadow: 8px 0 26px rgba(0,0,0,0.18);
   padding: 22px;
-  transition: right 0.25s ease;
+  transition: left 0.25s ease;
 }
 
 .drawer.open {
-  right: 0;
+  left: 0;
 }
 
 .drawer h2 {
@@ -380,10 +428,10 @@ textarea::placeholder {
   margin: 0 auto 14px;
 }
 
-.google-btn {
+.google-btn,
+.ok-btn,
+.close-btn {
   width: 100%;
-  border: 1px solid #dddddd;
-  background: #ffffff;
   border-radius: 14px;
   padding: 14px;
   font-weight: 900;
@@ -391,39 +439,24 @@ textarea::placeholder {
   margin-bottom: 10px;
 }
 
-.modal-card input {
-  width: 100%;
+.google-btn {
   border: 1px solid #dddddd;
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 16px;
-  margin-bottom: 10px;
+  background: #ffffff;
 }
 
 .ok-btn {
-  width: 100%;
   border: none;
   background: #111111;
   color: #ffffff;
-  border-radius: 14px;
-  padding: 14px;
-  font-weight: 900;
-  cursor: pointer;
-  margin-bottom: 10px;
 }
 
 .close-btn {
-  width: 100%;
   border: none;
   background: #eeeeee;
   color: #111111;
-  border-radius: 14px;
-  padding: 14px;
-  font-weight: 900;
-  cursor: pointer;
 }
 
-@media (max-width: 410px) {
+@media(max-width:410px) {
   .analysis-box {
     grid-template-columns: 42px 1fr 78px;
     gap: 8px;
@@ -433,6 +466,7 @@ textarea::placeholder {
     width: 42px;
     height: 42px;
     font-size: 27px;
+    line-height: 38px;
   }
 
   textarea {
@@ -457,13 +491,11 @@ textarea::placeholder {
 
 <nav id="drawer" class="drawer">
   <h2>Menu</h2>
-
   <button onclick="showInfo('sobre')">Sobre nós</button>
   <button onclick="showInfo('contato')">Contato</button>
   <button onclick="showInfo('topicos')">Tópicos</button>
   <button onclick="showInfo('escritorio')">Escritório</button>
   <button onclick="showInfo('duvidas')">Tirar dúvidas</button>
-
   <div id="infoBox" class="info-box"></div>
 </nav>
 
@@ -488,78 +520,205 @@ textarea::placeholder {
 
 <main class="app">
 
-  <header class="topbar">
-    <button id="loginButton" class="login-btn" onclick="openLogin()">Login / Cadastro</button>
-    <button class="menu-btn" onclick="openMenu()">☰</button>
-  </header>
+<header class="topbar">
+  <button class="menu-btn" onclick="openMenu()">☰</button>
+  <button id="loginButton" class="login-btn" onclick="openLogin()">Login / Cadastro</button>
+</header>
 
-  <section class="main-card">
-    <img src="file_000000006b3c720ead3ef359e6325064.png" class="logo-img" alt="REVELAÇÃO CIRÚRGICA">
+<section class="main-card">
+  <img src="file_000000006b3c720ead3ef359e6325064.png" class="logo-img" alt="REVELAÇÃO CIRÚRGICA">
 
-    <div class="analysis-panel">
-      <h1>Área de Análise</h1>
+  <div class="analysis-panel">
+    <h1>Área de Análise</h1>
 
-      <div class="analysis-box">
-        <label class="plus-btn" onclick="needLogin(event)">
-          +
-          <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" />
-        </label>
+    <div class="analysis-box">
+      <label class="plus-btn" onclick="needLogin(event)">
+        +
+        <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" />
+      </label>
 
-        <textarea id="texto" placeholder="Descreva sua situação ou envie texto, imagem, PDF, áudio, vídeo ou outros arquivos para análise."></textarea>
+      <textarea id="texto" onfocus="requireLogin()" placeholder="Descreva sua situação ou envie texto, imagem, PDF, áudio, vídeo ou outros arquivos para análise."></textarea>
 
-        <div class="side-actions">
-          <button id="btnConjugal" class="active" onclick="setMainTopic('Conjugal')">CONJUGAL</button>
-          <button id="btnEnganacao" onclick="setMainTopic('Enganação')">ENGANAÇÃO</button>
-        </div>
-      </div>
-
-      <button class="start-btn" onclick="startAnalysis()">Iniciar análise</button>
-
-      <div id="resultado" class="result">
-        <div id="percentual" class="percent">0%</div>
-
-        <div class="progress-wrap">
-          <div id="progress" class="progress"></div>
-        </div>
-
-        <div id="resultadoTitulo" class="result-title">Análise iniciada</div>
-        <div id="resultadoTexto" class="result-text">
-          Organizando informações e preparando prévia.
-        </div>
-
-        <div id="lockedArea" class="locked">
-          <button class="pay-btn" onclick="unlockAnalysis()">Liberar análise completa — R$ 98,26</button>
-          <button class="live-btn" onclick="scheduleLive()">Agendar atendimento por Live</button>
-
-          <div class="note">
-            Receba uma análise complementar com atendimento individual.
-          </div>
-        </div>
-      </div>
-
-      <div class="note">
-        Para iniciar qualquer análise, entre ou cadastre-se.
+      <div class="side-actions">
+        <button id="btnConjugal" class="active" onclick="openModule('conjugal')">CONJUGAL</button>
+        <button id="btnEnganacao" onclick="openModule('enganacao')">ENGANAÇÃO</button>
       </div>
     </div>
-  </section>
 
-  <section class="topics">
-    <button class="topic" onclick="setTopic('Empresarial', this)">Empresarial</button>
-    <button class="topic" onclick="setTopic('Golpes', this)">Golpes</button>
-    <button class="topic active" onclick="setTopic('Conjugal', this)">Conjugal</button>
-    <button class="topic" onclick="setTopic('Enganação', this)">Enganação</button>
-    <button class="topic" onclick="setTopic('Familiar', this)">Familiar</button>
-    <button class="topic" onclick="setTopic('Pessoal', this)">Pessoal</button>
-    <button class="topic" onclick="setTopic('Profissional', this)">Profissional</button>
-    <button class="topic" onclick="setTopic('Escolar', this)">Escolar</button>
-    <button class="topic" onclick="setTopic('Institucional', this)">Institucional</button>
-  </section>
+    <div class="notice">Para iniciar qualquer análise, entre ou cadastre-se.</div>
+  </div>
+</section>
+
+<section class="topics">
+  <button class="topic" onclick="openModule('empresarial')">Empresarial</button>
+  <button class="topic" onclick="openModule('golpes')">Golpes</button>
+  <button class="topic active" onclick="openModule('conjugal')">Conjugal</button>
+  <button class="topic" onclick="openModule('enganacao')">Enganação</button>
+  <button class="topic" onclick="openModule('familiar')">Familiar</button>
+  <button class="topic" onclick="openModule('pessoal')">Pessoal</button>
+  <button class="topic" onclick="openModule('profissional')">Profissional</button>
+</section>
+
+<section id="modConjugal" class="module">
+  <h2>Conjugal</h2>
+  <p>Análise para identificar se existe chance real de retorno. O objetivo é dizer a verdade, nada mais que a verdade, sem vender falsa esperança.</p>
+
+  <div class="step">
+    <div class="step-title">1. Dados da relação</div>
+
+    <select id="tipoRelacao">
+      <option>Tipo de vínculo</option>
+      <option>Apenas se conhecem</option>
+      <option>Ficaram uma vez</option>
+      <option>Ficantes recorrentes</option>
+      <option>Namoro</option>
+      <option>Noivado</option>
+      <option>Casamento no papel</option>
+      <option>Casamento sem registro</option>
+      <option>União estável</option>
+      <option>Relação à distância</option>
+      <option>Ex-relacionamento antigo</option>
+    </select>
+
+    <select id="tempoRelacao">
+      <option>Tempo de relação</option>
+      <option>Menos de 1 mês</option>
+      <option>1 a 3 meses</option>
+      <option>3 a 6 meses</option>
+      <option>6 meses a 1 ano</option>
+      <option>1 a 3 anos</option>
+      <option>3 a 7 anos</option>
+      <option>Mais de 7 anos</option>
+    </select>
+
+    <select id="tempoSeparados">
+      <option>Tempo separados</option>
+      <option>Menos de 7 dias</option>
+      <option>1 a 4 semanas</option>
+      <option>1 a 3 meses</option>
+      <option>3 a 6 meses</option>
+      <option>6 meses a 1 ano</option>
+      <option>Mais de 1 ano</option>
+    </select>
+
+    <select id="situacaoAtual">
+      <option>Situação atual</option>
+      <option>Ainda conversam</option>
+      <option>Conversam pouco</option>
+      <option>Responde seco/frio</option>
+      <option>Bloqueou</option>
+      <option>Desbloqueou recentemente</option>
+      <option>Visualiza e não responde</option>
+      <option>Sumiu completamente</option>
+      <option>Está com outra pessoa</option>
+      <option>Diz que não quer voltar</option>
+      <option>Dá sinais mistos</option>
+    </select>
+
+    <select id="quemTerminou">
+      <option>Quem terminou?</option>
+      <option>Eu terminei</option>
+      <option>A outra pessoa terminou</option>
+      <option>Foi mútuo</option>
+      <option>Não teve término claro</option>
+      <option>Houve afastamento progressivo</option>
+    </select>
+
+    <select id="traicao">
+      <option>Existiu traição?</option>
+      <option>Não houve traição</option>
+      <option>Houve traição da minha parte</option>
+      <option>Houve traição da outra pessoa</option>
+      <option>Houve traição dos dois lados</option>
+      <option>Existe suspeita, mas não confirmação</option>
+      <option>Prefiro não responder</option>
+    </select>
+  </div>
+
+  <div class="truth-box">
+    A verdade dos fatos é indispensável. Mentiras, omissões importantes ou distorções podem comprometer o resultado e invalidar a orientação da consultoria.
+  </div>
+
+  <div class="step">
+    <div class="step-title">2. Análise paga</div>
+    <p>Valor para saber se existe chance real de retorno ou não.</p>
+    <button class="action-btn black" onclick="payConjugal()">Analisar chance de retorno — R$ 98,26</button>
+  </div>
+
+  <div id="resultConjugal" class="result">
+    <div id="conjPercent" class="percent">0%</div>
+    <div class="progress-wrap"><div id="conjProgress" class="progress"></div></div>
+    <div id="conjTitle" class="result-title">Resultado objetivo</div>
+    <div id="conjText" class="result-text">Aguardando análise.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">4. Consultoria opcional</div>
+    <p>A consultoria de reaproximação não garante retorno. O resultado depende do contexto, da resposta da outra pessoa e das atitudes de quem busca a reconquista.</p>
+    <button class="action-btn gray" onclick="consultoria()">Solicitar consultoria de reaproximação</button>
+  </div>
+</section>
+
+<section id="modEnganacao" class="module">
+  <h2>Enganação / Verdade</h2>
+  <p>Análise para identificar sinais de mentira, omissão, manipulação, contradição, golpe ou narrativa inconsistente.</p>
+
+  <div class="step">
+    <div class="step-title">1. Tipo de suspeita</div>
+
+    <select id="tipoEnganacao">
+      <option>Selecione o tipo principal</option>
+      <option>Mentira</option>
+      <option>Omissão</option>
+      <option>Manipulação emocional</option>
+      <option>Golpe financeiro</option>
+      <option>Promessa suspeita</option>
+      <option>Contradição em conversa</option>
+      <option>Documento suspeito</option>
+      <option>Perfil suspeito</option>
+      <option>Outro</option>
+    </select>
+
+    <select id="provas">
+      <option>Material enviado</option>
+      <option>Conversa / print</option>
+      <option>Áudio</option>
+      <option>Vídeo</option>
+      <option>Documento</option>
+      <option>Imagem</option>
+      <option>Relato escrito</option>
+      <option>Vários materiais</option>
+    </select>
+  </div>
+
+  <div class="truth-box">
+    A análise depende da qualidade e da veracidade dos dados enviados. Informação falsa gera orientação falsa.
+  </div>
+
+  <div class="step">
+    <div class="step-title">2. Prévia e liberação</div>
+    <p>A análise inicia com prévia em suspense até 26%. Para liberar a análise completa, será exibido o valor de R$ 98,26.</p>
+    <button class="action-btn black" onclick="startEnganacao()">Iniciar análise de enganação</button>
+  </div>
+
+  <div id="resultEnganacao" class="result">
+    <div id="engPercent" class="percent">0%</div>
+    <div class="progress-wrap"><div id="engProgress" class="progress"></div></div>
+    <div id="engTitle" class="result-title">Análise iniciada</div>
+    <div id="engText" class="result-text">Cruzando informações.</div>
+
+    <div id="engLocked" class="locked">
+      <button class="action-btn black" onclick="unlockEnganacao()">Liberar análise completa — R$ 98,26</button>
+      <button class="action-btn gray" onclick="consultoriaLive()">Agendar atendimento por Live</button>
+    </div>
+  </div>
+</section>
 
 </main>
 
 <script>
 let loggedIn = false;
-let topicoAtual = "Conjugal";
+let pendingModule = null;
 let intervalId = null;
 
 function openMenu() {
@@ -581,18 +740,19 @@ function closeAll() {
 function setAuthTab(tipo) {
   document.getElementById("loginTab").classList.remove("active");
   document.getElementById("cadastroTab").classList.remove("active");
-
-  if (tipo === "login") {
-    document.getElementById("loginTab").classList.add("active");
-  } else {
-    document.getElementById("cadastroTab").classList.add("active");
-  }
+  document.getElementById(tipo === "login" ? "loginTab" : "cadastroTab").classList.add("active");
 }
 
 function loginFake() {
   loggedIn = true;
   document.getElementById("loginButton").innerText = "Logado";
   closeAll();
+
+  if (pendingModule) {
+    const moduleToOpen = pendingModule;
+    pendingModule = null;
+    openModule(moduleToOpen);
+  }
 }
 
 function requireLogin() {
@@ -600,7 +760,6 @@ function requireLogin() {
     openLogin();
     return false;
   }
-
   return true;
 }
 
@@ -611,87 +770,151 @@ function needLogin(event) {
   }
 }
 
-function setMainTopic(nome) {
-  if (!requireLogin()) return;
+function openModule(nome) {
+  if (!loggedIn) {
+    pendingModule = nome;
+    openLogin();
+    return;
+  }
 
-  topicoAtual = nome;
+  document.querySelectorAll(".module").forEach(function(module) {
+    module.classList.remove("show");
+  });
+
+  document.querySelectorAll(".topic").forEach(function(topic) {
+    topic.classList.remove("active");
+  });
 
   document.getElementById("btnConjugal").classList.remove("active");
   document.getElementById("btnEnganacao").classList.remove("active");
 
-  if (nome === "Conjugal") {
+  if (nome === "conjugal") {
+    document.getElementById("modConjugal").classList.add("show");
     document.getElementById("btnConjugal").classList.add("active");
-  } else {
+  } else if (nome === "enganacao") {
+    document.getElementById("modEnganacao").classList.add("show");
     document.getElementById("btnEnganacao").classList.add("active");
+  } else {
+    alert("Módulo " + nome + " será configurado na próxima etapa.");
   }
 }
 
-function setTopic(nome, botao) {
-  if (!requireLogin()) return;
-
-  topicoAtual = nome;
-
-  document.querySelectorAll(".topic").forEach(function(item) {
-    item.classList.remove("active");
-  });
-
-  botao.classList.add("active");
-}
-
-function startAnalysis() {
+function payConjugal() {
   if (!requireLogin()) return;
 
   clearInterval(intervalId);
 
-  const resultado = document.getElementById("resultado");
-  const progress = document.getElementById("progress");
-  const percentual = document.getElementById("percentual");
-  const titulo = document.getElementById("resultadoTitulo");
-  const texto = document.getElementById("resultadoTexto");
-  const locked = document.getElementById("lockedArea");
+  const result = document.getElementById("resultConjugal");
+  const progress = document.getElementById("conjProgress");
+  const percent = document.getElementById("conjPercent");
+  const title = document.getElementById("conjTitle");
+  const text = document.getElementById("conjText");
 
-  resultado.style.display = "block";
+  result.style.display = "block";
+  progress.style.width = "0%";
+  percent.innerText = "0%";
+  title.innerText = "Analisando chance de retorno";
+  text.innerText = "Cruzando tipo de relação, tempo, situação atual, sinais e histórico.";
+
+  let valor = 0;
+
+  intervalId = setInterval(function() {
+    valor += 2;
+
+    if (valor > 100) {
+      valor = 100;
+    }
+
+    progress.style.width = valor + "%";
+    percent.innerText = valor + "%";
+
+    if (valor >= 100) {
+      clearInterval(intervalId);
+
+      const situacao = document.getElementById("situacaoAtual").value;
+      let chance = 50;
+
+      if (situacao === "Ainda conversam") chance += 20;
+      if (situacao === "Dá sinais mistos") chance += 10;
+      if (situacao === "Desbloqueou recentemente") chance += 12;
+      if (situacao === "Bloqueou") chance -= 25;
+      if (situacao === "Sumiu completamente") chance -= 30;
+      if (situacao === "Diz que não quer voltar") chance -= 35;
+      if (situacao === "Está com outra pessoa") chance -= 25;
+
+      if (chance < 5) chance = 5;
+      if (chance > 98) chance = 98;
+
+      percent.innerText = chance + "%";
+      progress.style.width = chance + "%";
+
+      if (chance <= 50) {
+        title.innerText = "Chance baixa ou incerta";
+        text.innerText = "Os dados enviados indicam possibilidade baixa ou incerta de retorno neste momento. O sistema não recomenda alimentar falsa esperança sem novos sinais concretos.";
+      } else if (chance <= 74) {
+        title.innerText = "Chance moderada";
+        text.innerText = "Existem sinais mistos. Pode haver espaço para reaproximação, mas exige estratégia, postura correta e análise cuidadosa do contexto.";
+      } else {
+        title.innerText = "Chance alta";
+        text.innerText = "Os dados enviados indicam sinais relevantes de abertura ou vínculo. Ainda assim, não existe garantia de retorno, pois depende da outra pessoa e da execução correta das atitudes.";
+      }
+    }
+  }, 120);
+}
+
+function startEnganacao() {
+  if (!requireLogin()) return;
+
+  clearInterval(intervalId);
+
+  const result = document.getElementById("resultEnganacao");
+  const progress = document.getElementById("engProgress");
+  const percent = document.getElementById("engPercent");
+  const title = document.getElementById("engTitle");
+  const text = document.getElementById("engText");
+  const locked = document.getElementById("engLocked");
+
+  result.style.display = "block";
   locked.style.display = "none";
   progress.style.width = "0%";
-  percentual.innerText = "0%";
-  titulo.innerText = "Análise iniciada";
-  texto.innerText = "Cruzando informações, verificando sinais e preparando a prévia.";
+  percent.innerText = "0%";
+  title.innerText = "Análise iniciada";
+  text.innerText = "Organizando dados, sinais, contradições e contexto.";
 
   let valor = 0;
 
   intervalId = setInterval(function() {
     valor++;
-
     progress.style.width = valor + "%";
-    percentual.innerText = valor + "%";
+    percent.innerText = valor + "%";
 
     if (valor === 9) {
-      texto.innerText = "Organizando contexto e separando os primeiros indícios.";
+      text.innerText = "Separando pontos de atenção e possíveis incoerências.";
     }
 
     if (valor === 17) {
-      texto.innerText = "Comparando padrões e preparando o relatório inicial.";
+      text.innerText = "Comparando narrativa, provas e sinais de risco.";
     }
 
     if (valor >= 26) {
       clearInterval(intervalId);
-      titulo.innerText = "Prévia atingiu 26%";
-      texto.innerText = "A análise inicial de " + topicoAtual + " foi preparada. Para visualizar a análise completa, libere o resultado.";
+      title.innerText = "Prévia atingiu 26%";
+      text.innerText = "Foram encontrados sinais suficientes para continuar a análise. Para visualizar a análise completa, libere o resultado.";
       locked.style.display = "block";
     }
   }, 220);
 }
 
-function unlockAnalysis() {
+function unlockEnganacao() {
   if (!requireLogin()) return;
 
   clearInterval(intervalId);
 
-  const progress = document.getElementById("progress");
-  const percentual = document.getElementById("percentual");
-  const titulo = document.getElementById("resultadoTitulo");
-  const texto = document.getElementById("resultadoTexto");
-  const locked = document.getElementById("lockedArea");
+  const progress = document.getElementById("engProgress");
+  const percent = document.getElementById("engPercent");
+  const title = document.getElementById("engTitle");
+  const text = document.getElementById("engText");
+  const locked = document.getElementById("engLocked");
 
   let valor = 26;
 
@@ -703,34 +926,34 @@ function unlockAnalysis() {
     }
 
     progress.style.width = valor + "%";
-    percentual.innerText = valor + "%";
+    percent.innerText = valor + "%";
 
     if (valor >= 100) {
       clearInterval(intervalId);
-      titulo.innerText = "Análise liberada";
-      texto.innerText = "Resultado completo liberado para teste. Próxima etapa: inserir regras finais por tópico, percentuais reais, pagamento e relatório definitivo.";
+      title.innerText = "Análise completa liberada";
+      text.innerText = "Resultado liberado para teste. Próxima etapa: inserir critérios definitivos, relatório completo e integração de pagamento.";
       locked.style.display = "none";
     }
   }, 120);
 }
 
-function scheduleLive() {
-  if (!requireLogin()) return;
+function consultoria() {
+  alert("Consultoria de reaproximação: serviço sob orçamento. Não garante retorno. Depende do caso, da outra pessoa e das atitudes do cliente.");
+}
 
-  document.getElementById("resultado").style.display = "block";
-  document.getElementById("resultadoTitulo").innerText = "Atendimento por Live";
-  document.getElementById("resultadoTexto").innerText = "Solicitação registrada para teste. Próxima etapa: conectar agenda, WhatsApp ou formulário.";
+function consultoriaLive() {
+  alert("Atendimento por Live: próximo passo será conectar agenda, WhatsApp ou formulário.");
 }
 
 function showInfo(tipo) {
   const box = document.getElementById("infoBox");
 
   const textos = {
-    sobre: "Texto provisório: plataforma de análise estratégica para organizar informações, arquivos e sinais em situações conjugais, empresariais, pessoais e de risco.",
-    contato: "Contato: espaço reservado para telefone, WhatsApp, e-mail ou formulário.",
-    topicos: "Tópicos: Conjugal, Enganação, Golpes, Empresarial, Familiar, Pessoal, Profissional, Escolar e Institucional.",
-    escritorio: "Escritório: espaço reservado para apresentação profissional, estrutura de atendimento e dados comerciais.",
-    duvidas: "Tirar dúvidas: descreva sua situação na Área de Análise e envie arquivos quando necessário."
+    sobre: "A REVELAÇÃO CIRÚRGICA organiza informações, arquivos e sinais para auxiliar análises conjugais, empresariais, pessoais, de golpe e enganação. O objetivo é buscar a verdade, sem falsa promessa.",
+    contato: "Contato: espaço reservado para WhatsApp, e-mail ou formulário.",
+    topicos: "Tópicos: Conjugal, Enganação, Golpes, Empresarial, Familiar, Pessoal e Profissional.",
+    escritorio: "Escritório: espaço reservado para estrutura profissional, atendimento e dados comerciais.",
+    duvidas: "Para tirar dúvidas, descreva a situação na Área de Análise e envie arquivos quando necessário."
   };
 
   box.innerText = textos[tipo];
