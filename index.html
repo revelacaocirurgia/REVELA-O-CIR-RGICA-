@@ -13,190 +13,178 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #f5f6f7;
+  background: #f4f5f6;
   color: #111;
 }
 
 .app {
+  width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  padding: 16px 14px 40px;
+  padding: 14px 14px 40px;
 }
 
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
-.menu-btn,
-.account-btn {
+.login-btn,
+.menu-btn {
   border: none;
-  background: white;
+  background: #ffffff;
   border-radius: 14px;
-  padding: 12px 14px;
-  font-size: 16px;
+  padding: 11px 14px;
+  font-size: 15px;
   font-weight: 800;
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   cursor: pointer;
 }
 
-.logo-card {
-  background: white;
-  border-radius: 26px;
-  padding: 14px;
-  margin-bottom: 18px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
-  border: 1px solid #e6e6e6;
+.main-card {
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
 }
 
 .logo-img {
   width: 100%;
   display: block;
-  border-radius: 22px;
 }
 
-.panel {
-  background: white;
-  border-radius: 26px;
-  padding: 22px 18px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
-  border: 1px solid #e5e5e5;
+.analysis-panel {
+  padding: 18px 16px 20px;
+  border-top: 1px solid #eeeeee;
 }
 
-.panel h1 {
+.analysis-panel h1 {
+  margin: 0 0 14px;
   text-align: center;
-  margin: 0 0 18px;
-  font-size: 30px;
+  font-size: 29px;
+  line-height: 1.1;
 }
 
-.input-area {
-  border: 1px solid #dedede;
+.analysis-box {
+  border: 1px solid #dddddd;
   border-radius: 24px;
-  padding: 16px;
-  background: white;
-  margin-bottom: 16px;
+  background: #ffffff;
+  padding: 13px;
+  display: grid;
+  grid-template-columns: 46px 1fr 86px;
+  gap: 10px;
+  align-items: stretch;
+  min-height: 155px;
+}
+
+.plus-btn {
+  border: 1px solid #dddddd;
+  background: #f4f4f4;
+  border-radius: 16px;
+  width: 46px;
+  height: 46px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+  align-self: end;
+}
+
+.plus-btn input {
+  display: none;
 }
 
 textarea {
   width: 100%;
-  min-height: 125px;
+  min-height: 124px;
   border: none;
   outline: none;
   resize: none;
-  font-size: 20px;
-  line-height: 1.45;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
   color: #222;
+  padding: 4px 0;
 }
 
 textarea::placeholder {
   color: #777;
 }
 
-.main-choices {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 14px;
+.side-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  justify-content: flex-end;
 }
 
-.choice {
+.side-actions button {
   border: none;
-  border-radius: 16px;
-  padding: 15px 8px;
-  font-size: 15px;
+  border-radius: 14px;
+  padding: 11px 6px;
+  font-size: 12px;
   font-weight: 900;
   cursor: pointer;
 }
 
-.choice.active {
-  background: #111;
-  color: white;
+.side-actions .active {
+  background: #111111;
+  color: #ffffff;
 }
 
-.choice:not(.active) {
+.side-actions button:not(.active) {
   background: #eeeeee;
-  color: #111;
+  color: #111111;
 }
 
-.upload {
-  display: block;
-  border: 1px solid #dedede;
-  border-radius: 18px;
-  text-align: center;
-  padding: 16px;
-  font-size: 17px;
-  font-weight: 800;
-  margin-bottom: 16px;
-  cursor: pointer;
-}
-
-.upload input {
-  display: none;
-}
-
-.reveal-btn {
+.start-btn {
   width: 100%;
   border: none;
   border-radius: 20px;
-  padding: 18px;
-  background: #111;
-  color: white;
-  font-size: 22px;
+  padding: 17px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 20px;
   font-weight: 900;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 .topics {
-  margin-top: 22px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
-  gap: 11px;
+  gap: 10px;
   justify-content: center;
 }
 
 .topic {
-  border: 1px solid #d9d9d9;
-  background: white;
+  border: 1px solid #d8d8d8;
+  background: #ffffff;
+  color: #111111;
   border-radius: 999px;
-  padding: 11px 17px;
-  font-size: 16px;
+  padding: 10px 15px;
+  font-size: 15px;
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
 
 .topic.active {
-  background: #111;
-  color: white;
-  border-color: #111;
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
 }
 
 .result {
   display: none;
-  margin-top: 18px;
+  margin-top: 16px;
   background: #f7f7f7;
   border: 1px solid #e1e1e1;
   border-radius: 20px;
-  padding: 16px;
-}
-
-.progress-wrap {
-  width: 100%;
-  height: 16px;
-  background: #e5e5e5;
-  border-radius: 999px;
-  overflow: hidden;
-  margin: 14px 0;
-}
-
-.progress {
-  width: 0%;
-  height: 100%;
-  background: #111;
-  border-radius: 999px;
-  transition: width 0.18s linear;
+  padding: 15px;
 }
 
 .percent {
@@ -206,6 +194,23 @@ textarea::placeholder {
   margin-bottom: 10px;
 }
 
+.progress-wrap {
+  width: 100%;
+  height: 15px;
+  background: #e2e2e2;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: #111111;
+  border-radius: 999px;
+  transition: width 0.18s linear;
+}
+
 .result-title {
   font-size: 18px;
   font-weight: 900;
@@ -213,91 +218,107 @@ textarea::placeholder {
 }
 
 .result-text {
-  color: #555;
+  color: #555555;
   line-height: 1.5;
   font-size: 15px;
 }
 
 .locked {
   display: none;
-  margin-top: 16px;
+  margin-top: 15px;
 }
 
 .pay-btn,
 .live-btn {
   width: 100%;
   border: none;
-  border-radius: 18px;
-  padding: 16px;
-  font-size: 17px;
+  border-radius: 17px;
+  padding: 15px;
+  font-size: 16px;
   font-weight: 900;
   cursor: pointer;
   margin-top: 10px;
 }
 
 .pay-btn {
-  background: #111;
-  color: white;
+  background: #111111;
+  color: #ffffff;
 }
 
 .live-btn {
   background: #eeeeee;
-  color: #111;
+  color: #111111;
 }
 
-.small-note {
-  color: #777;
+.note {
+  color: #777777;
   text-align: center;
   font-size: 14px;
   line-height: 1.45;
-  margin-top: 14px;
-}
-
-.drawer {
-  position: fixed;
-  top: 0;
-  left: -280px;
-  width: 270px;
-  height: 100vh;
-  background: white;
-  z-index: 50;
-  box-shadow: 8px 0 24px rgba(0,0,0,0.16);
-  padding: 22px;
-  transition: left 0.25s ease;
-}
-
-.drawer.open {
-  left: 0;
-}
-
-.drawer h2 {
-  margin: 0 0 20px;
-  font-size: 22px;
-}
-
-.drawer button {
-  display: block;
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: #f4f4f4;
-  padding: 14px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: 800;
-  cursor: pointer;
+  margin-top: 12px;
 }
 
 .overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.38);
   z-index: 40;
 }
 
 .overlay.show {
+  display: block;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: -285px;
+  width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 60;
+  box-shadow: -8px 0 26px rgba(0,0,0,0.18);
+  padding: 22px;
+  transition: right 0.25s ease;
+}
+
+.drawer.open {
+  right: 0;
+}
+
+.drawer h2 {
+  margin: 0 0 18px;
+  font-size: 23px;
+}
+
+.drawer button {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #f3f3f3;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.info-box {
+  display: none;
+  margin-top: 14px;
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 16px;
+  padding: 14px;
+  color: #444444;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.info-box.show {
   display: block;
 }
 
@@ -318,17 +339,17 @@ textarea::placeholder {
 .modal-card {
   width: 100%;
   max-width: 420px;
-  background: white;
+  background: #ffffff;
   border-radius: 26px;
   padding: 22px;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.24);
 }
 
 .tabs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .tab {
@@ -337,44 +358,53 @@ textarea::placeholder {
   padding: 13px;
   font-weight: 900;
   cursor: pointer;
+  background: #eeeeee;
+  color: #111111;
 }
 
 .tab.active {
-  background: #111;
-  color: white;
-}
-
-.tab:not(.active) {
-  background: #eeeeee;
-  color: #111;
+  background: #111111;
+  color: #ffffff;
 }
 
 .avatar {
-  width: 72px;
-  height: 72px;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
   background: #eeeeee;
-  margin: 0 auto 12px;
+  color: #777777;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
-  color: #777;
-}
-
-.modal-card input {
-  width: 100%;
-  border: 1px solid #dedede;
-  border-radius: 14px;
-  padding: 14px;
-  margin-bottom: 10px;
-  font-size: 16px;
+  margin: 0 auto 14px;
 }
 
 .google-btn {
   width: 100%;
-  border: 1px solid #dedede;
-  background: white;
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.modal-card input {
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+  padding: 14px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.ok-btn {
+  width: 100%;
+  border: none;
+  background: #111111;
+  color: #ffffff;
   border-radius: 14px;
   padding: 14px;
   font-weight: 900;
@@ -386,23 +416,36 @@ textarea::placeholder {
   width: 100%;
   border: none;
   background: #eeeeee;
+  color: #111111;
   border-radius: 14px;
   padding: 14px;
   font-weight: 900;
   cursor: pointer;
 }
 
-@media (max-width: 380px) {
-  .panel h1 {
+@media (max-width: 410px) {
+  .analysis-box {
+    grid-template-columns: 42px 1fr 78px;
+    gap: 8px;
+  }
+
+  .plus-btn {
+    width: 42px;
+    height: 42px;
     font-size: 27px;
   }
 
   textarea {
-    font-size: 18px;
+    font-size: 16px;
   }
 
-  .choice {
-    font-size: 14px;
+  .side-actions button {
+    font-size: 11px;
+    padding: 10px 4px;
+  }
+
+  .analysis-panel h1 {
+    font-size: 27px;
   }
 }
 </style>
@@ -414,12 +457,14 @@ textarea::placeholder {
 
 <nav id="drawer" class="drawer">
   <h2>Menu</h2>
-  <button onclick="closeAll()">Tirar dúvida</button>
-  <button onclick="alertInfo('Sobre nós')">Sobre nós</button>
-  <button onclick="alertInfo('Contato')">Contato</button>
-  <button onclick="alertInfo('Tópicos')">Tópicos</button>
-  <button onclick="alertInfo('Escritório')">Escritório</button>
-  <button onclick="alertInfo('Fale conosco')">Fale conosco</button>
+
+  <button onclick="showInfo('sobre')">Sobre nós</button>
+  <button onclick="showInfo('contato')">Contato</button>
+  <button onclick="showInfo('topicos')">Tópicos</button>
+  <button onclick="showInfo('escritorio')">Escritório</button>
+  <button onclick="showInfo('duvidas')">Tirar dúvidas</button>
+
+  <div id="infoBox" class="info-box"></div>
 </nav>
 
 <div id="loginModal" class="modal">
@@ -431,12 +476,12 @@ textarea::placeholder {
 
     <div class="avatar">Foto</div>
 
-    <button class="google-btn" onclick="fakeAction()">Continuar com Google</button>
+    <button class="google-btn" onclick="loginFake()">Continuar com Google</button>
 
     <input type="email" placeholder="E-mail" />
     <input type="password" placeholder="Senha" />
 
-    <button class="pay-btn" onclick="fakeAction()">OK</button>
+    <button class="ok-btn" onclick="loginFake()">OK</button>
     <button class="close-btn" onclick="closeAll()">Fechar</button>
   </div>
 </div>
@@ -444,57 +489,57 @@ textarea::placeholder {
 <main class="app">
 
   <header class="topbar">
+    <button id="loginButton" class="login-btn" onclick="openLogin()">Login / Cadastro</button>
     <button class="menu-btn" onclick="openMenu()">☰</button>
-    <button class="account-btn" onclick="openLogin()">Login / Cadastro</button>
   </header>
 
-  <section class="logo-card">
+  <section class="main-card">
     <img src="file_000000006b3c720ead3ef359e6325064.png" class="logo-img" alt="REVELAÇÃO CIRÚRGICA">
-  </section>
 
-  <section class="panel">
-    <h1>Área de Revelação</h1>
+    <div class="analysis-panel">
+      <h1>Área de Análise</h1>
 
-    <div class="input-area">
-      <textarea id="texto" placeholder="Tire suas dúvidas. Coloque seus arquivos: texto, PDF, áudio e vídeo."></textarea>
+      <div class="analysis-box">
+        <label class="plus-btn" onclick="needLogin(event)">
+          +
+          <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" />
+        </label>
 
-      <div class="main-choices">
-        <button class="choice active" onclick="setMainTopic('Conjugal', this)">CONJUGAL</button>
-        <button class="choice" onclick="setMainTopic('Enganação', this)">ENGANAÇÃO</button>
-      </div>
-    </div>
+        <textarea id="texto" placeholder="Descreva sua situação ou envie texto, imagem, PDF, áudio, vídeo ou outros arquivos para análise."></textarea>
 
-    <label class="upload">
-      Enviar imagem, PDF, áudio ou vídeo
-      <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt">
-    </label>
-
-    <button class="reveal-btn" onclick="startReveal()">Revelar</button>
-
-    <div id="resultado" class="result">
-      <div id="percentual" class="percent">0%</div>
-
-      <div class="progress-wrap">
-        <div id="progress" class="progress"></div>
-      </div>
-
-      <div id="resultadoTitulo" class="result-title">Análise iniciada</div>
-      <div id="resultadoTexto" class="result-text">
-        Organizando informações e preparando prévia da revelação.
-      </div>
-
-      <div id="lockedArea" class="locked">
-        <button class="pay-btn" onclick="unlockReveal()">Liberar Revelação Completa — R$ 98,26</button>
-        <button class="live-btn" onclick="scheduleLive()">Agendar atendimento por Live</button>
-
-        <div class="small-note">
-          Receba uma análise complementar com atendimento individual.
+        <div class="side-actions">
+          <button id="btnConjugal" class="active" onclick="setMainTopic('Conjugal')">CONJUGAL</button>
+          <button id="btnEnganacao" onclick="setMainTopic('Enganação')">ENGANAÇÃO</button>
         </div>
       </div>
-    </div>
 
-    <div class="small-note">
-      Teste inicial do fluxo: dúvida, arquivo, tópico, prévia em 26%, liberação e atendimento por Live.
+      <button class="start-btn" onclick="startAnalysis()">Iniciar análise</button>
+
+      <div id="resultado" class="result">
+        <div id="percentual" class="percent">0%</div>
+
+        <div class="progress-wrap">
+          <div id="progress" class="progress"></div>
+        </div>
+
+        <div id="resultadoTitulo" class="result-title">Análise iniciada</div>
+        <div id="resultadoTexto" class="result-text">
+          Organizando informações e preparando prévia.
+        </div>
+
+        <div id="lockedArea" class="locked">
+          <button class="pay-btn" onclick="unlockAnalysis()">Liberar análise completa — R$ 98,26</button>
+          <button class="live-btn" onclick="scheduleLive()">Agendar atendimento por Live</button>
+
+          <div class="note">
+            Receba uma análise complementar com atendimento individual.
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        Para iniciar qualquer análise, entre ou cadastre-se.
+      </div>
     </div>
   </section>
 
@@ -513,6 +558,7 @@ textarea::placeholder {
 </main>
 
 <script>
+let loggedIn = false;
 let topicoAtual = "Conjugal";
 let intervalId = null;
 
@@ -528,8 +574,8 @@ function openLogin() {
 
 function closeAll() {
   document.getElementById("drawer").classList.remove("open");
-  document.getElementById("overlay").classList.remove("show");
   document.getElementById("loginModal").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
 }
 
 function setAuthTab(tipo) {
@@ -543,17 +589,46 @@ function setAuthTab(tipo) {
   }
 }
 
-function setMainTopic(nome, botao) {
+function loginFake() {
+  loggedIn = true;
+  document.getElementById("loginButton").innerText = "Logado";
+  closeAll();
+}
+
+function requireLogin() {
+  if (!loggedIn) {
+    openLogin();
+    return false;
+  }
+
+  return true;
+}
+
+function needLogin(event) {
+  if (!loggedIn) {
+    event.preventDefault();
+    openLogin();
+  }
+}
+
+function setMainTopic(nome) {
+  if (!requireLogin()) return;
+
   topicoAtual = nome;
 
-  document.querySelectorAll(".choice").forEach(function(item) {
-    item.classList.remove("active");
-  });
+  document.getElementById("btnConjugal").classList.remove("active");
+  document.getElementById("btnEnganacao").classList.remove("active");
 
-  botao.classList.add("active");
+  if (nome === "Conjugal") {
+    document.getElementById("btnConjugal").classList.add("active");
+  } else {
+    document.getElementById("btnEnganacao").classList.add("active");
+  }
 }
 
 function setTopic(nome, botao) {
+  if (!requireLogin()) return;
+
   topicoAtual = nome;
 
   document.querySelectorAll(".topic").forEach(function(item) {
@@ -563,7 +638,9 @@ function setTopic(nome, botao) {
   botao.classList.add("active");
 }
 
-function startReveal() {
+function startAnalysis() {
+  if (!requireLogin()) return;
+
   clearInterval(intervalId);
 
   const resultado = document.getElementById("resultado");
@@ -599,13 +676,15 @@ function startReveal() {
     if (valor >= 26) {
       clearInterval(intervalId);
       titulo.innerText = "Prévia atingiu 26%";
-      texto.innerText = "A análise inicial de " + topicoAtual + " foi preparada. Para visualizar a revelação completa, libere o resultado.";
+      texto.innerText = "A análise inicial de " + topicoAtual + " foi preparada. Para visualizar a análise completa, libere o resultado.";
       locked.style.display = "block";
     }
-  }, 210);
+  }, 220);
 }
 
-function unlockReveal() {
+function unlockAnalysis() {
+  if (!requireLogin()) return;
+
   clearInterval(intervalId);
 
   const progress = document.getElementById("progress");
@@ -628,25 +707,34 @@ function unlockReveal() {
 
     if (valor >= 100) {
       clearInterval(intervalId);
-      titulo.innerText = "Revelação liberada";
-      texto.innerText = "Resultado completo liberado para teste. Próxima etapa: inserir o texto definitivo da revelação, regras por tópico, percentuais reais e integração de pagamento.";
+      titulo.innerText = "Análise liberada";
+      texto.innerText = "Resultado completo liberado para teste. Próxima etapa: inserir regras finais por tópico, percentuais reais, pagamento e relatório definitivo.";
       locked.style.display = "none";
     }
   }, 120);
 }
 
 function scheduleLive() {
+  if (!requireLogin()) return;
+
+  document.getElementById("resultado").style.display = "block";
   document.getElementById("resultadoTitulo").innerText = "Atendimento por Live";
-  document.getElementById("resultadoTexto").innerText = "Solicitação registrada para teste. Próxima etapa: conectar agenda, WhatsApp ou formulário de atendimento.";
+  document.getElementById("resultadoTexto").innerText = "Solicitação registrada para teste. Próxima etapa: conectar agenda, WhatsApp ou formulário.";
 }
 
-function alertInfo(nome) {
-  closeAll();
-  alert(nome + " será configurado na próxima etapa.");
-}
+function showInfo(tipo) {
+  const box = document.getElementById("infoBox");
 
-function fakeAction() {
-  alert("Função visual criada para teste. Integração real será configurada depois.");
+  const textos = {
+    sobre: "Texto provisório: plataforma de análise estratégica para organizar informações, arquivos e sinais em situações conjugais, empresariais, pessoais e de risco.",
+    contato: "Contato: espaço reservado para telefone, WhatsApp, e-mail ou formulário.",
+    topicos: "Tópicos: Conjugal, Enganação, Golpes, Empresarial, Familiar, Pessoal, Profissional, Escolar e Institucional.",
+    escritorio: "Escritório: espaço reservado para apresentação profissional, estrutura de atendimento e dados comerciais.",
+    duvidas: "Tirar dúvidas: descreva sua situação na Área de Análise e envie arquivos quando necessário."
+  };
+
+  box.innerText = textos[tipo];
+  box.classList.add("show");
 }
 </script>
 
