@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>REVELAÇÃO CIRÚRGICA</title>
+
 <style>
 * {
   box-sizing: border-box;
@@ -17,140 +18,76 @@ body {
 }
 
 .app {
-  width: 100%;
   max-width: 520px;
   margin: 0 auto;
-  padding: 22px 16px 42px;
+  padding: 16px 14px 40px;
 }
 
-.top-label {
-  text-align: center;
-  color: #777;
-  font-size: 20px;
-  margin: 8px 0 18px;
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.menu-btn,
+.account-btn {
+  border: none;
+  background: white;
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  cursor: pointer;
 }
 
 .logo-card {
-  background: #fff;
-  border-radius: 24px;
-  padding: 18px;
+  background: white;
+  border-radius: 26px;
+  padding: 14px;
   margin-bottom: 18px;
-  box-shadow: 0 8px 26px rgba(0,0,0,0.08);
-  border: 1px solid #e4e4e4;
-  text-align: center;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  border: 1px solid #e6e6e6;
 }
 
-.logo-visual {
+.logo-img {
   width: 100%;
-  height: 150px;
+  display: block;
   border-radius: 22px;
-  background: linear-gradient(135deg, #07131c, #061f2a 45%, #031016);
-  border: 1px solid #35d8e8;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 18px;
-}
-
-.logo-visual::before {
-  content: "";
-  position: absolute;
-  width: 140%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #26e6ff, transparent);
-  top: 76px;
-  left: -20%;
-  box-shadow: 0 0 22px #20dff8;
-}
-
-.scalpel {
-  position: absolute;
-  width: 200px;
-  height: 18px;
-  left: 50%;
-  top: 54%;
-  transform: translate(-50%, -50%) rotate(-24deg);
-  background: linear-gradient(90deg, #d9e1e8, #ffffff, #68727d);
-  border-radius: 18px;
-  box-shadow: 0 0 18px rgba(94,234,212,0.45);
-}
-
-.scalpel::after {
-  content: "";
-  position: absolute;
-  right: -42px;
-  top: -7px;
-  width: 54px;
-  height: 32px;
-  background: linear-gradient(90deg, #f8fafc, #9ca3af);
-  clip-path: polygon(0 20%, 100% 50%, 0 80%);
-}
-
-.brand {
-  font-size: clamp(30px, 8vw, 46px);
-  letter-spacing: 5px;
-  line-height: 1;
-  margin: 0;
-  font-weight: 400;
-}
-
-.brand .cyan {
-  color: #11c8d2;
-}
-
-.brand .gray {
-  color: #5f6368;
-}
-
-.miar {
-  margin-top: 16px;
-  color: #777;
-  letter-spacing: 6px;
-  font-size: 17px;
-}
-
-.miar strong {
-  color: #10c8d2;
-}
-
-.tagline {
-  margin-top: 5px;
-  color: #888;
-  letter-spacing: 4px;
-  font-size: 10px;
 }
 
 .panel {
   background: white;
-  border: 1px solid #e4e4e4;
   border-radius: 26px;
   padding: 22px 18px;
-  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+  border: 1px solid #e5e5e5;
 }
 
 .panel h1 {
-  margin: 4px 0 18px;
   text-align: center;
+  margin: 0 0 18px;
   font-size: 30px;
-  line-height: 1.1;
 }
 
 .input-area {
   border: 1px solid #dedede;
-  border-radius: 22px;
+  border-radius: 24px;
   padding: 16px;
-  background: #fff;
+  background: white;
   margin-bottom: 16px;
 }
 
 textarea {
   width: 100%;
-  min-height: 124px;
+  min-height: 125px;
   border: none;
   outline: none;
   resize: none;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   line-height: 1.45;
+  font-family: Arial, Helvetica, sans-serif;
   color: #222;
 }
 
@@ -158,7 +95,7 @@ textarea::placeholder {
   color: #777;
 }
 
-.inside-buttons {
+.main-choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
@@ -168,31 +105,30 @@ textarea::placeholder {
 .choice {
   border: none;
   border-radius: 16px;
-  padding: 15px 10px;
-  font-weight: 900;
+  padding: 15px 8px;
   font-size: 15px;
+  font-weight: 900;
   cursor: pointer;
 }
 
-.choice.primary {
+.choice.active {
   background: #111;
-  color: #fff;
+  color: white;
 }
 
-.choice.secondary {
-  background: #f0f0f0;
+.choice:not(.active) {
+  background: #eeeeee;
   color: #111;
 }
 
 .upload {
   display: block;
-  text-align: center;
   border: 1px solid #dedede;
   border-radius: 18px;
-  padding: 16px 12px;
+  text-align: center;
+  padding: 16px;
   font-size: 17px;
   font-weight: 800;
-  background: #fff;
   margin-bottom: 16px;
   cursor: pointer;
 }
@@ -201,7 +137,7 @@ textarea::placeholder {
   display: none;
 }
 
-.reveal {
+.reveal-btn {
   width: 100%;
   border: none;
   border-radius: 20px;
@@ -213,28 +149,19 @@ textarea::placeholder {
   cursor: pointer;
 }
 
-.note {
-  color: #777;
-  text-align: center;
-  line-height: 1.5;
-  font-size: 15px;
-  margin: 18px 6px 0;
-}
-
 .topics {
   margin-top: 22px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 11px;
   justify-content: center;
 }
 
 .topic {
-  border: 1px solid #d8d8d8;
+  border: 1px solid #d9d9d9;
   background: white;
-  color: #111;
   border-radius: 999px;
-  padding: 12px 18px;
+  padding: 11px 17px;
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
@@ -255,82 +182,274 @@ textarea::placeholder {
   padding: 16px;
 }
 
-.result-title {
+.progress-wrap {
+  width: 100%;
+  height: 16px;
+  background: #e5e5e5;
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 14px 0;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: #111;
+  border-radius: 999px;
+  transition: width 0.18s linear;
+}
+
+.percent {
+  text-align: center;
+  font-size: 28px;
   font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.result-title {
   font-size: 18px;
+  font-weight: 900;
   margin-bottom: 8px;
 }
 
 .result-text {
   color: #555;
-  line-height: 1.45;
+  line-height: 1.5;
   font-size: 15px;
 }
 
-.metrics {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.locked {
+  display: none;
+  margin-top: 16px;
+}
+
+.pay-btn,
+.live-btn {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  padding: 16px;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.pay-btn {
+  background: #111;
+  color: white;
+}
+
+.live-btn {
+  background: #eeeeee;
+  color: #111;
+}
+
+.small-note {
+  color: #777;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
   margin-top: 14px;
 }
 
-.metric {
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 270px;
+  height: 100vh;
   background: white;
-  border: 1px solid #e1e1e1;
-  border-radius: 16px;
-  padding: 12px;
+  z-index: 50;
+  box-shadow: 8px 0 24px rgba(0,0,0,0.16);
+  padding: 22px;
+  transition: left 0.25s ease;
 }
 
-.metric span {
+.drawer.open {
+  left: 0;
+}
+
+.drawer h2 {
+  margin: 0 0 20px;
+  font-size: 22px;
+}
+
+.drawer button {
   display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: #f4f4f4;
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 40;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tab {
+  border: none;
+  border-radius: 14px;
+  padding: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #111;
+  color: white;
+}
+
+.tab:not(.active) {
+  background: #eeeeee;
+  color: #111;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #eeeeee;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
   color: #777;
-  font-size: 13px;
-  margin-bottom: 4px;
 }
 
-.metric b {
-  font-size: 18px;
-  color: #0aa9b5;
+.modal-card input {
+  width: 100%;
+  border: 1px solid #dedede;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 10px;
+  font-size: 16px;
 }
 
-@media (max-width: 420px) {
-  .app {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
+.google-btn {
+  width: 100%;
+  border: 1px solid #dedede;
+  background: white;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
 
-  .panel {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+.close-btn {
+  width: 100%;
+  border: none;
+  background: #eeeeee;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
 
+@media (max-width: 380px) {
   .panel h1 {
-    font-size: 28px;
+    font-size: 27px;
   }
 
   textarea {
-    font-size: 19px;
+    font-size: 18px;
+  }
+
+  .choice {
+    font-size: 14px;
   }
 }
 </style>
 </head>
+
 <body>
+
+<div id="overlay" class="overlay" onclick="closeAll()"></div>
+
+<nav id="drawer" class="drawer">
+  <h2>Menu</h2>
+  <button onclick="closeAll()">Tirar dúvida</button>
+  <button onclick="alertInfo('Sobre nós')">Sobre nós</button>
+  <button onclick="alertInfo('Contato')">Contato</button>
+  <button onclick="alertInfo('Tópicos')">Tópicos</button>
+  <button onclick="alertInfo('Escritório')">Escritório</button>
+  <button onclick="alertInfo('Fale conosco')">Fale conosco</button>
+</nav>
+
+<div id="loginModal" class="modal">
+  <div class="modal-card">
+    <div class="tabs">
+      <button id="loginTab" class="tab active" onclick="setAuthTab('login')">Login</button>
+      <button id="cadastroTab" class="tab" onclick="setAuthTab('cadastro')">Cadastro</button>
+    </div>
+
+    <div class="avatar">Foto</div>
+
+    <button class="google-btn" onclick="fakeAction()">Continuar com Google</button>
+
+    <input type="email" placeholder="E-mail" />
+    <input type="password" placeholder="Senha" />
+
+    <button class="pay-btn" onclick="fakeAction()">OK</button>
+    <button class="close-btn" onclick="closeAll()">Fechar</button>
+  </div>
+</div>
 
 <main class="app">
 
-  <div class="top-label">Projeto em desenvolvimento</div>
+  <header class="topbar">
+    <button class="menu-btn" onclick="openMenu()">☰</button>
+    <button class="account-btn" onclick="openLogin()">Login / Cadastro</button>
+  </header>
 
   <section class="logo-card">
-    <div class="logo-visual">
-      <div class="scalpel"></div>
-    </div>
-
-    <h2 class="brand">
-      <span class="cyan">REVELAÇÃO</span><span class="gray"> CIRÚRGICA</span>
-    </h2>
-
-    <div class="miar"><strong>MIAR</strong> MAKTUB</div>
-    <div class="tagline">FACILITADOR DE VIDA</div>
+    <img src="file_000000006b3c720ead3ef359e6325064.png" class="logo-img" alt="REVELAÇÃO CIRÚRGICA">
   </section>
 
   <section class="panel">
@@ -339,39 +458,43 @@ textarea::placeholder {
     <div class="input-area">
       <textarea id="texto" placeholder="Tire suas dúvidas. Coloque seus arquivos: texto, PDF, áudio e vídeo."></textarea>
 
-      <div class="inside-buttons">
-        <button class="choice primary" onclick="setMainTopic('Conjugal', this)">CONJUGAL</button>
-        <button class="choice secondary" onclick="setMainTopic('Enganação', this)">ENGANAÇÃO</button>
+      <div class="main-choices">
+        <button class="choice active" onclick="setMainTopic('Conjugal', this)">CONJUGAL</button>
+        <button class="choice" onclick="setMainTopic('Enganação', this)">ENGANAÇÃO</button>
       </div>
     </div>
 
     <label class="upload">
-      ⬆ Enviar arquivo
-      <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" />
+      Enviar imagem, PDF, áudio ou vídeo
+      <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt">
     </label>
 
-    <button class="reveal" onclick="revelar()">🔎 Revelar</button>
+    <button class="reveal-btn" onclick="startReveal()">Revelar</button>
 
     <div id="resultado" class="result">
-      <div id="resultadoTitulo" class="result-title">Pré-análise</div>
-      <div id="resultadoTexto" class="result-text">
-        Selecione um tópico e envie as informações para organizar a revelação.
+      <div id="percentual" class="percent">0%</div>
+
+      <div class="progress-wrap">
+        <div id="progress" class="progress"></div>
       </div>
 
-      <div class="metrics">
-        <div class="metric">
-          <span>%</span>
-          <b id="percentual">A definir</b>
-        </div>
-        <div class="metric">
-          <span>Valores</span>
-          <b id="valor">A definir</b>
+      <div id="resultadoTitulo" class="result-title">Análise iniciada</div>
+      <div id="resultadoTexto" class="result-text">
+        Organizando informações e preparando prévia da revelação.
+      </div>
+
+      <div id="lockedArea" class="locked">
+        <button class="pay-btn" onclick="unlockReveal()">Liberar Revelação Completa — R$ 98,26</button>
+        <button class="live-btn" onclick="scheduleLive()">Agendar atendimento por Live</button>
+
+        <div class="small-note">
+          Receba uma análise complementar com atendimento individual.
         </div>
       </div>
     </div>
 
-    <div class="note">
-      Sistema inicial de organização. Os percentuais, valores e regras por tópico ficam prontos para ajuste conforme sua tabela definitiva.
+    <div class="small-note">
+      Teste inicial do fluxo: dúvida, arquivo, tópico, prévia em 26%, liberação e atendimento por Live.
     </div>
   </section>
 
@@ -391,63 +514,43 @@ textarea::placeholder {
 
 <script>
 let topicoAtual = "Conjugal";
+let intervalId = null;
 
-const dados = {
-  "Empresarial": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área para análise empresarial: contrato, proposta, sociedade, risco, conduta e decisão."
-  },
-  "Golpes": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área para análise de golpes: promessa, urgência, manipulação, prova, inconsistência e risco."
-  },
-  "Conjugal": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área para análise conjugal: vínculo, confiança, contradições, comportamento, comunicação e sinais de ruptura."
-  },
-  "Enganação": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área para análise de enganação: omissão, incoerência, manipulação, narrativa e padrão repetido."
-  },
-  "Familiar": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área para análise familiar: conflitos, dependências, alianças, tensão e dinâmica de grupo."
-  },
-  "Pessoal": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área pessoal: organização de dúvida, fatos, hipóteses, riscos e próximos passos."
-  },
-  "Profissional": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área profissional: ambiente, conflito, oportunidade, conduta, comunicação e tomada de decisão."
-  },
-  "Escolar": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área escolar: comportamento, aprendizagem, rotina, contexto familiar e orientação inicial."
-  },
-  "Institucional": {
-    percentual: "A definir",
-    valor: "A definir",
-    texto: "Área institucional: fluxo, documento, responsabilidade, risco e encaminhamento."
+function openMenu() {
+  document.getElementById("drawer").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function openLogin() {
+  document.getElementById("loginModal").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function closeAll() {
+  document.getElementById("drawer").classList.remove("open");
+  document.getElementById("overlay").classList.remove("show");
+  document.getElementById("loginModal").classList.remove("show");
+}
+
+function setAuthTab(tipo) {
+  document.getElementById("loginTab").classList.remove("active");
+  document.getElementById("cadastroTab").classList.remove("active");
+
+  if (tipo === "login") {
+    document.getElementById("loginTab").classList.add("active");
+  } else {
+    document.getElementById("cadastroTab").classList.add("active");
   }
-};
+}
 
-function atualizarResultado(nome) {
-  const item = dados[nome];
+function setMainTopic(nome, botao) {
+  topicoAtual = nome;
 
-  document.getElementById("resultado").style.display = "block";
-  document.getElementById("resultadoTitulo").innerText = nome;
-  document.getElementById("resultadoTexto").innerText = item.texto;
-  document.getElementById("percentual").innerText = item.percentual;
-  document.getElementById("valor").innerText = item.valor;
+  document.querySelectorAll(".choice").forEach(function(item) {
+    item.classList.remove("active");
+  });
+
+  botao.classList.add("active");
 }
 
 function setTopic(nome, botao) {
@@ -458,43 +561,92 @@ function setTopic(nome, botao) {
   });
 
   botao.classList.add("active");
-  atualizarResultado(nome);
 }
 
-function setMainTopic(nome, botao) {
-  topicoAtual = nome;
+function startReveal() {
+  clearInterval(intervalId);
 
-  document.querySelectorAll(".choice").forEach(function(item) {
-    item.classList.remove("primary");
-    item.classList.add("secondary");
-  });
+  const resultado = document.getElementById("resultado");
+  const progress = document.getElementById("progress");
+  const percentual = document.getElementById("percentual");
+  const titulo = document.getElementById("resultadoTitulo");
+  const texto = document.getElementById("resultadoTexto");
+  const locked = document.getElementById("lockedArea");
 
-  botao.classList.remove("secondary");
-  botao.classList.add("primary");
+  resultado.style.display = "block";
+  locked.style.display = "none";
+  progress.style.width = "0%";
+  percentual.innerText = "0%";
+  titulo.innerText = "Análise iniciada";
+  texto.innerText = "Cruzando informações, verificando sinais e preparando a prévia.";
 
-  atualizarResultado(nome);
+  let valor = 0;
+
+  intervalId = setInterval(function() {
+    valor++;
+
+    progress.style.width = valor + "%";
+    percentual.innerText = valor + "%";
+
+    if (valor === 9) {
+      texto.innerText = "Organizando contexto e separando os primeiros indícios.";
+    }
+
+    if (valor === 17) {
+      texto.innerText = "Comparando padrões e preparando o relatório inicial.";
+    }
+
+    if (valor >= 26) {
+      clearInterval(intervalId);
+      titulo.innerText = "Prévia atingiu 26%";
+      texto.innerText = "A análise inicial de " + topicoAtual + " foi preparada. Para visualizar a revelação completa, libere o resultado.";
+      locked.style.display = "block";
+    }
+  }, 210);
 }
 
-function revelar() {
-  const texto = document.getElementById("texto").value.trim();
-  const arquivos = document.getElementById("arquivo").files.length;
-  const item = dados[topicoAtual];
+function unlockReveal() {
+  clearInterval(intervalId);
 
-  let resposta = item.texto;
+  const progress = document.getElementById("progress");
+  const percentual = document.getElementById("percentual");
+  const titulo = document.getElementById("resultadoTitulo");
+  const texto = document.getElementById("resultadoTexto");
+  const locked = document.getElementById("lockedArea");
 
-  if (texto.length > 0) {
-    resposta += " Texto recebido.";
-  }
+  let valor = 26;
 
-  if (arquivos > 0) {
-    resposta += " Arquivos anexados: " + arquivos + ".";
-  }
+  intervalId = setInterval(function() {
+    valor += 4;
 
-  document.getElementById("resultado").style.display = "block";
-  document.getElementById("resultadoTitulo").innerText = "Revelação: " + topicoAtual;
-  document.getElementById("resultadoTexto").innerText = resposta;
-  document.getElementById("percentual").innerText = item.percentual;
-  document.getElementById("valor").innerText = item.valor;
+    if (valor > 100) {
+      valor = 100;
+    }
+
+    progress.style.width = valor + "%";
+    percentual.innerText = valor + "%";
+
+    if (valor >= 100) {
+      clearInterval(intervalId);
+      titulo.innerText = "Revelação liberada";
+      texto.innerText = "Resultado completo liberado para teste. Próxima etapa: inserir o texto definitivo da revelação, regras por tópico, percentuais reais e integração de pagamento.";
+      locked.style.display = "none";
+    }
+  }, 120);
+}
+
+function scheduleLive() {
+  document.getElementById("resultadoTitulo").innerText = "Atendimento por Live";
+  document.getElementById("resultadoTexto").innerText = "Solicitação registrada para teste. Próxima etapa: conectar agenda, WhatsApp ou formulário de atendimento.";
+}
+
+function alertInfo(nome) {
+  closeAll();
+  alert(nome + " será configurado na próxima etapa.");
+}
+
+function fakeAction() {
+  alert("Função visual criada para teste. Integração real será configurada depois.");
 }
 </script>
 
