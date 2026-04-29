@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>REVELAÇÃO CIRÚRGICA</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- LOGIN -->
+  <div id="login_section" class="container">
+    <div class="card">
+      <h1>🏥 REVELAÇÃO CIRÚRGICA</h1>
+      <p>Plataforma de análises cirúrgicas avançadas</p>
+
+      <div class="tabs">
+        <button class="tab-btn active" onclick="abaLogin()">Login</button>
+        <button class="tab-btn" onclick="abaRegistro()">Registrar</button>
+      </div>
+
+      <!-- ABA LOGIN -->
+      <div id="login_tab" class="tab-content active">
+        <h2>Faça Login</h2>
+        <input type="email" id="login_email" placeholder="Email" class="input">
+        <input type="password" id="login_senha" placeholder="Senha" class="input">
+        <button onclick="login()" class="btn">Entrar</button>
+      </div>
+
+      <!-- ABA REGISTRO -->
+      <div id="registro_tab" class="tab-content">
+        <h2>Crie sua Conta</h2>
+        <input type="text" id="reg_nome" placeholder="Nome completo" class="input">
+        <input type="email" id="reg_email" placeholder="Email" class="input">
+        <input type="password" id="reg_senha" placeholder="Senha" class="input">
+        <button onclick="registrar()" class="btn">Criar Conta</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div id="dashboard_section" class="container" style="display: none;">
+    <div class="header">
+      <h1>🏥 REVELAÇÃO CIRÚRGICA</h1>
+      <button onclick="logout()" class="btn-logout">Sair</button>
+    </div>
+
+    <div class="dashboard">
+      <!-- ANÁLISES -->
+      <div class="card">
+        <h2>📊 Análises</h2>
+        <select id="tipo_modulo" class="input">
+          <option value="">Escolha o tipo de análise</option>
+          <option value="radiologia">Radiologia</option>
+          <option value="patologia">Patologia</option>
+          <option value="cardiologia">Cardiologia</option>
+          <option value="neurologia">Neurologia</option>
+        </select>
+        <button onclick="criarAnalise()" class="btn">Criar Análise</button>
+        <div id="analises_container"></div>
+      </div>
+
+      <!-- AGENDAMENTOS -->
+      <div class="card">
+        <h2>📅 Agendar Consulta</h2>
+        <select id="tipo_servico" class="input">
+          <option value="">Escolha o serviço</option>
+          <option value="consulta">Consulta Geral</option>
+          <option value="cirurgia">Cirurgia</option>
+          <option value="follow_up">Follow-up</option>
+        </select>
+        <input type="datetime-local" id="data_agendamento" class="input">
+        <button onclick="agendar()" class="btn">Agendar</button>
+        <div id="agendamentos_container"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+    function abaLogin() {
+      document.getElementById('login_tab').classList.add('active');
+      document.getElementById('registro_tab').classList.remove('active');
+      document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      document.querySelectorAll('.tab-btn')[1].classList.remove('active');
+    }
+
+    function abaRegistro() {
+      document.getElementById('login_tab').classList.remove('active');
+      document.getElementById('registro_tab').classList.add('active');
+      document.querySelectorAll('.tab-btn')[0].classList.remove('active');
+      document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    }
+  </script>
+</body>
+</html>
