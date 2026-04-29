@@ -1,164 +1,1225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>REVELAÇÃO CIRÚRGICA</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>REVELAÇÃO CIRÚRGICA</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #1a1a1a 0%, #050505 55%, #000000 100%);
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    .screen {
-      width: 100%;
-      max-width: 900px;
-      padding: 40px 24px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f5f6;
+  color: #111;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 8px 14px;
-      border: 1px solid #2dd4bf;
-      border-radius: 999px;
-      color: #5eead4;
-      font-size: 14px;
-      letter-spacing: 1px;
-      margin-bottom: 28px;
-    }
+.app {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 14px 14px 40px;
+}
 
-    h1 {
-      font-size: clamp(42px, 8vw, 86px);
-      line-height: 0.95;
-      margin: 0 0 24px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-    .subtitle {
-      font-size: clamp(18px, 3vw, 26px);
-      color: #e5e7eb;
-      margin-bottom: 18px;
-    }
+.menu-btn,
+.login-btn,
+.logout-btn {
+  border: none;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 11px 14px;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
 
-    .text {
-      max-width: 680px;
-      margin: 0 auto 34px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #bdbdbd;
-    }
+.logout-btn {
+  display: none;
+  background: #111111;
+  color: #ffffff;
+}
 
-    .actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 36px;
-    }
+.status {
+  display: none;
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
 
-    .button {
-      padding: 14px 22px;
-      border-radius: 12px;
-      border: 1px solid #ffffff33;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      min-width: 180px;
-    }
+.main-card {
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+}
 
-    .button.primary {
-      background: #ffffff;
-      color: #000000;
-    }
+.logo-img {
+  width: 100%;
+  display: block;
+}
 
-    .button.secondary {
-      background: transparent;
-      color: #ffffff;
-    }
+.analysis-panel {
+  padding: 18px 16px 20px;
+  border-top: 1px solid #eeeeee;
+}
 
-    .status {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
+.analysis-panel h1 {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 29px;
+  line-height: 1.1;
+}
 
-    .card {
-      border: 1px solid #ffffff18;
-      background: #ffffff08;
-      border-radius: 16px;
-      padding: 18px;
-    }
+.analysis-box {
+  border: 1px solid #dddddd;
+  border-radius: 24px;
+  background: #ffffff;
+  padding: 13px;
+  display: grid;
+  grid-template-columns: 46px 1fr 88px;
+  gap: 10px;
+  align-items: stretch;
+  min-height: 155px;
+}
 
-    .card strong {
-      display: block;
-      font-size: 15px;
-      color: #5eead4;
-      margin-bottom: 6px;
-    }
+.plus-btn {
+  border: 1px solid #dddddd;
+  background: #f4f4f4;
+  border-radius: 16px;
+  width: 46px;
+  height: 46px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 42px;
+  cursor: pointer;
+  align-self: end;
+  text-align: center;
+}
 
-    .card span {
-      font-size: 14px;
-      color: #d1d5db;
-    }
+.plus-btn input {
+  display: none;
+}
 
-    @media (max-width: 700px) {
-      .status {
-        grid-template-columns: 1fr;
-      }
+textarea {
+  width: 100%;
+  min-height: 124px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+  color: #222;
+  padding: 4px 0;
+}
 
-      h1 {
-        letter-spacing: 1px;
-      }
-    }
-  </style>
+textarea::placeholder {
+  color: #777;
+}
+
+.side-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  justify-content: flex-end;
+}
+
+.side-actions button {
+  border: none;
+  border-radius: 14px;
+  padding: 11px 6px;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.side-actions .active {
+  background: #111111;
+  color: #ffffff;
+}
+
+.side-actions button:not(.active) {
+  background: #eeeeee;
+  color: #111111;
+}
+
+.notice {
+  margin-top: 14px;
+  color: #777;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.topics {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.topic {
+  border: 1px solid #d8d8d8;
+  background: #ffffff;
+  color: #111111;
+  border-radius: 999px;
+  padding: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+.topic.active {
+  background: #111111;
+  color: #ffffff;
+  border-color: #111111;
+}
+
+.module {
+  display: none;
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.module.show {
+  display: block;
+}
+
+.module h2 {
+  margin: 0 0 8px;
+  font-size: 23px;
+}
+
+.module p {
+  color: #555;
+  line-height: 1.5;
+  font-size: 15px;
+  margin: 8px 0;
+}
+
+.step {
+  border: 1px solid #e2e2e2;
+  background: #f8f8f8;
+  border-radius: 18px;
+  padding: 14px;
+  margin-top: 12px;
+}
+
+.step-title {
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+select,
+input {
+  width: 100%;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+  padding: 13px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  background: #ffffff;
+}
+
+.action-btn {
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  padding: 15px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.black {
+  background: #111111;
+  color: #ffffff;
+}
+
+.gray {
+  background: #eeeeee;
+  color: #111111;
+}
+
+.truth-box {
+  background: #fff7e6;
+  border: 1px solid #f1d08a;
+  border-radius: 16px;
+  padding: 13px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #4d3a10;
+}
+
+.result {
+  display: none;
+  margin-top: 16px;
+  background: #f7f7f7;
+  border: 1px solid #e1e1e1;
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.percent {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 15px;
+  background: #e2e2e2;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background: #111111;
+  border-radius: 999px;
+  transition: width 0.18s linear;
+}
+
+.result-title {
+  font-size: 18px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.result-text {
+  color: #555555;
+  line-height: 1.5;
+  font-size: 15px;
+}
+
+.timeline {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.timeline-item {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.export-box {
+  display: none;
+  white-space: pre-wrap;
+  background: #111111;
+  color: #ffffff;
+  padding: 14px;
+  border-radius: 16px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.locked {
+  display: none;
+  margin-top: 15px;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.38);
+  z-index: 40;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -285px;
+  width: 280px;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 60;
+  box-shadow: 8px 0 26px rgba(0,0,0,0.18);
+  padding: 22px;
+  transition: left 0.25s ease;
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer h2 {
+  margin: 0 0 18px;
+  font-size: 23px;
+}
+
+.drawer button {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #f3f3f3;
+  padding: 14px;
+  border-radius: 14px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.info-box {
+  display: none;
+  margin-top: 14px;
+  background: #f7f7f7;
+  border: 1px solid #e2e2e2;
+  border-radius: 16px;
+  padding: 14px;
+  color: #444444;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.info-box.show {
+  display: block;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 22px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.24);
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.tab {
+  border: none;
+  border-radius: 14px;
+  padding: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  background: #eeeeee;
+  color: #111111;
+}
+
+.tab.active {
+  background: #111111;
+  color: #ffffff;
+}
+
+.avatar {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background: #eeeeee;
+  color: #777777;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  margin: 0 auto 14px;
+}
+
+.google-btn,
+.ok-btn,
+.close-btn {
+  width: 100%;
+  border-radius: 14px;
+  padding: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.google-btn {
+  border: 1px solid #dddddd;
+  background: #ffffff;
+}
+
+.ok-btn {
+  border: none;
+  background: #111111;
+  color: #ffffff;
+}
+
+.close-btn {
+  border: none;
+  background: #eeeeee;
+  color: #111111;
+}
+
+.file-note {
+  display: none;
+  margin-top: 10px;
+  background: #eef7ff;
+  border: 1px solid #c9e3ff;
+  color: #123;
+  border-radius: 14px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+@media(max-width:410px) {
+  .analysis-box {
+    grid-template-columns: 42px 1fr 78px;
+    gap: 8px;
+  }
+
+  .plus-btn {
+    width: 42px;
+    height: 42px;
+    font-size: 27px;
+    line-height: 38px;
+  }
+
+  textarea {
+    font-size: 16px;
+  }
+
+  .side-actions button {
+    font-size: 11px;
+    padding: 10px 4px;
+  }
+
+  .analysis-panel h1 {
+    font-size: 27px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <main class="screen">
-    <div class="badge">PROTÓTIPO OPERACIONAL</div>
 
-    <h1>REVELAÇÃO<br />CIRÚRGICA</h1>
+<div id="overlay" class="overlay" onclick="closeAll()"></div>
 
-    <p class="subtitle">A primeira base pública do projeto está no ar.</p>
+<nav id="drawer" class="drawer">
+  <h2>Menu</h2>
+  <button onclick="showInfo('sobre')">Sobre nós</button>
+  <button onclick="showInfo('contato')">Contato</button>
+  <button onclick="showInfo('topicos')">Tópicos</button>
+  <button onclick="showInfo('escritorio')">Escritório</button>
+  <button onclick="showInfo('duvidas')">Tirar dúvidas</button>
+  <div id="infoBox" class="info-box"></div>
+</nav>
 
-    <p class="text">
-      Estrutura inicial conectada ao GitHub e à Vercel. Esta página será evoluída para a interface oficial do aplicativo.
-    </p>
-
-    <div class="actions">
-      <a class="button primary" href="#">Entrar no projeto</a>
-      <a class="button secondary" href="#">Ver apresentação</a>
+<div id="loginModal" class="modal">
+  <div class="modal-card">
+    <div class="tabs">
+      <button id="loginTab" class="tab active" onclick="setAuthTab('login')">Login</button>
+      <button id="cadastroTab" class="tab" onclick="setAuthTab('cadastro')">Cadastro</button>
     </div>
 
-    <section class="status">
-      <div class="card">
-        <strong>GitHub</strong>
-        <span>Repositório conectado</span>
-      </div>
+    <div class="avatar">Foto</div>
 
-      <div class="card">
-        <strong>Vercel</strong>
-        <span>Produção publicada</span>
-      </div>
+    <button class="google-btn" onclick="loginGoogleFake()">Continuar com Google</button>
 
-      <div class="card">
-        <strong>Próxima fase</strong>
-        <span>Interface oficial</span>
+    <input id="nomeAuth" type="text" placeholder="Nome completo" style="display:none;" />
+    <input id="emailAuth" type="email" placeholder="E-mail" />
+    <input id="senhaAuth" type="password" placeholder="Senha" />
+
+    <button class="ok-btn" onclick="loginFake()">OK</button>
+    <button class="close-btn" onclick="closeAll()">Fechar</button>
+  </div>
+</div>
+
+<main class="app">
+
+<header class="topbar">
+  <button class="menu-btn" onclick="openMenu()">☰</button>
+  <button id="loginButton" class="login-btn" onclick="openLogin()">Login / Cadastro</button>
+  <button id="logoutButton" class="logout-btn" onclick="logoutFake()">Sair</button>
+</header>
+
+<div id="loginStatus" class="status">Logado em modo demonstração</div>
+
+<section class="main-card">
+<img src="topo.png.png" class="logo-img" alt="REVELAÇÃO CIRÚRGICA">
+
+  <div class="analysis-panel">
+    <h1>Área de Análise</h1>
+
+    <div class="analysis-box">
+      <label class="plus-btn" onclick="needLogin(event)">
+        +
+        <input id="arquivo" type="file" multiple accept="image/*,.pdf,audio/*,video/*,.txt" onchange="arquivoSelecionado()" />
+      </label>
+
+      <textarea id="texto" onfocus="requireLogin()" placeholder="Descreva sua situação ou envie texto, imagem, PDF, áudio, vídeo ou outros arquivos para análise."></textarea>
+
+      <div class="side-actions">
+        <button id="btnConjugal" class="active" onclick="openModule('conjugal')">CONJUGAL</button>
+        <button id="btnEnganacao" onclick="openModule('enganacao')">ENGANAÇÃO</button>
       </div>
-    </section>
-  </main>
+    </div>
+
+    <div id="fileNote" class="file-note"></div>
+    <div id="notice" class="notice">Para iniciar qualquer análise, entre ou cadastre-se.</div>
+  </div>
+</section>
+
+<section class="topics">
+  <button class="topic" onclick="openModule('empresarial')">Empresarial</button>
+  <button class="topic" onclick="openModule('golpes')">Golpes</button>
+  <button class="topic active" onclick="openModule('conjugal')">Conjugal</button>
+  <button class="topic" onclick="openModule('enganacao')">Enganação</button>
+  <button class="topic" onclick="openModule('familiar')">Familiar</button>
+  <button class="topic" onclick="openModule('pessoal')">Pessoal</button>
+  <button class="topic" onclick="openModule('profissional')">Profissional</button>
+</section>
+
+<section id="modConjugal" class="module">
+  <h2>Conjugal</h2>
+  <p>Análise para identificar se existe chance real de retorno. O objetivo é dizer a verdade, nada mais que a verdade, sem vender falsa esperança.</p>
+
+  <div class="step">
+    <div class="step-title">1. Dados da relação</div>
+
+    <select id="tipoRelacao">
+      <option>Tipo de vínculo</option>
+      <option>Apenas se conhecem</option>
+      <option>Ficaram uma vez</option>
+      <option>Ficantes recorrentes</option>
+      <option>Namoro</option>
+      <option>Noivado</option>
+      <option>Casamento no papel</option>
+      <option>Casamento sem registro</option>
+      <option>União estável</option>
+      <option>Relação à distância</option>
+      <option>Ex-relacionamento antigo</option>
+    </select>
+
+    <select id="tempoRelacao">
+      <option>Tempo de relação</option>
+      <option>Menos de 1 mês</option>
+      <option>1 a 3 meses</option>
+      <option>3 a 6 meses</option>
+      <option>6 meses a 1 ano</option>
+      <option>1 a 3 anos</option>
+      <option>3 a 7 anos</option>
+      <option>Mais de 7 anos</option>
+    </select>
+
+    <select id="tempoSeparados">
+      <option>Tempo separados</option>
+      <option>Menos de 7 dias</option>
+      <option>1 a 4 semanas</option>
+      <option>1 a 3 meses</option>
+      <option>3 a 6 meses</option>
+      <option>6 meses a 1 ano</option>
+      <option>Mais de 1 ano</option>
+    </select>
+
+    <select id="situacaoAtual">
+      <option>Situação atual</option>
+      <option>Ainda conversam</option>
+      <option>Conversam pouco</option>
+      <option>Responde seco/frio</option>
+      <option>Bloqueou</option>
+      <option>Desbloqueou recentemente</option>
+      <option>Visualiza e não responde</option>
+      <option>Sumiu completamente</option>
+      <option>Está com outra pessoa</option>
+      <option>Diz que não quer voltar</option>
+      <option>Dá sinais mistos</option>
+    </select>
+
+    <select id="quemTerminou">
+      <option>Quem terminou?</option>
+      <option>Eu terminei</option>
+      <option>A outra pessoa terminou</option>
+      <option>Foi mútuo</option>
+      <option>Não teve término claro</option>
+      <option>Houve afastamento progressivo</option>
+    </select>
+
+    <select id="traicao">
+      <option>Existiu traição?</option>
+      <option>Não houve traição</option>
+      <option>Houve traição da minha parte</option>
+      <option>Houve traição da outra pessoa</option>
+      <option>Houve traição dos dois lados</option>
+      <option>Existe suspeita, mas não confirmação</option>
+      <option>Prefiro não responder</option>
+    </select>
+  </div>
+
+  <div class="truth-box">
+    A verdade dos fatos é indispensável. Mentiras, omissões importantes ou distorções podem comprometer o resultado e invalidar a orientação da consultoria.
+  </div>
+
+  <div class="step">
+    <div class="step-title">2. Análise paga</div>
+    <p>Valor para saber se existe chance real de retorno ou não.</p>
+    <button class="action-btn black" onclick="payConjugal()">Analisar chance de retorno — R$ 98,26</button>
+  </div>
+
+  <div id="resultConjugal" class="result">
+    <div id="conjPercent" class="percent">0%</div>
+    <div class="progress-wrap"><div id="conjProgress" class="progress"></div></div>
+    <div id="conjTitle" class="result-title">Resultado objetivo</div>
+    <div id="conjText" class="result-text">Aguardando análise.</div>
+  </div>
+
+  <div class="step">
+    <div class="step-title">4. Consultoria opcional</div>
+    <p>A consultoria de reaproximação não garante retorno. O resultado depende do contexto, da resposta da outra pessoa e das atitudes de quem busca a reconquista.</p>
+    <button class="action-btn gray" onclick="consultoria()">Solicitar consultoria de reaproximação</button>
+  </div>
+</section>
+
+<section id="modEnganacao" class="module">
+  <h2>Enganação / Verdade</h2>
+  <p>Análise para identificar sinais de mentira, omissão, manipulação, contradição, golpe ou narrativa inconsistente.</p>
+
+  <div class="step">
+    <div class="step-title">1. Tipo de suspeita</div>
+
+    <select id="tipoEnganacao">
+      <option>Selecione o tipo principal</option>
+      <option>Mentira</option>
+      <option>Omissão</option>
+      <option>Manipulação emocional</option>
+      <option>Golpe financeiro</option>
+      <option>Promessa suspeita</option>
+      <option>Contradição em conversa</option>
+      <option>Documento suspeito</option>
+      <option>Perfil suspeito</option>
+      <option>Outro</option>
+    </select>
+
+    <select id="provas">
+      <option>Material enviado</option>
+      <option>Conversa / print</option>
+      <option>Áudio</option>
+      <option>Vídeo</option>
+      <option>Documento</option>
+      <option>Imagem</option>
+      <option>Relato escrito</option>
+      <option>Vários materiais</option>
+    </select>
+  </div>
+
+  <div class="truth-box">
+    A análise depende da qualidade e da veracidade dos dados enviados. Informação falsa gera orientação falsa.
+  </div>
+
+  <div class="step">
+    <div class="step-title">2. Prévia e liberação</div>
+    <p>A análise inicia com prévia em suspense até 26%. Para liberar a análise completa, será exibido o valor de R$ 98,26.</p>
+    <button class="action-btn black" onclick="startEnganacao()">Iniciar análise de enganação</button>
+  </div>
+
+  <div id="resultEnganacao" class="result">
+    <div id="engPercent" class="percent">0%</div>
+    <div class="progress-wrap"><div id="engProgress" class="progress"></div></div>
+    <div id="engTitle" class="result-title">Análise iniciada</div>
+    <div id="engText" class="result-text">Cruzando informações.</div>
+
+    <div id="engLocked" class="locked">
+      <button class="action-btn black" onclick="unlockEnganacao()">Liberar análise completa — R$ 98,26</button>
+      <button class="action-btn gray" onclick="consultoriaLive()">Agendar atendimento por Live</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script>
+let loggedIn = false;
+let pendingModule = null;
+let intervalId = null;
+let authTab = "login";
+
+const nomesModulos = {
+  conjugal: "Conjugal",
+  enganacao: "Enganação / Verdade",
+  golpes: "Golpes",
+  empresarial: "Empresarial",
+  familiar: "Familiar",
+  pessoal: "Pessoal",
+  profissional: "Profissional"
+};
+
+const descricoesModulos = {
+  conjugal: "Análise para identificar chance real de retorno, sinais mistos, afastamento, bloqueio, frieza e possibilidade de reaproximação.",
+  enganacao: "Análise para identificar sinais de mentira, omissão, manipulação, contradição, golpe ou narrativa inconsistente.",
+  golpes: "Análise para detectar risco de golpe, promessa suspeita, urgência artificial, pedido financeiro, perfil falso ou manipulação.",
+  empresarial: "Análise de risco em contexto profissional, sociedade, cliente, funcionário, proposta comercial ou incoerência operacional.",
+  familiar: "Análise de conflitos familiares, omissões, manipulações, afastamentos, interesses ocultos e padrões repetidos.",
+  pessoal: "Análise de situação pessoal, decisão difícil, padrão de comportamento, risco emocional e pontos que exigem cautela.",
+  profissional: "Análise de postura profissional, comunicação, risco de exposição, inconsistência, conflito e próximos passos."
+};
+
+function openMenu() {
+  document.getElementById("drawer").classList.add("open");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function openLogin() {
+  document.getElementById("loginModal").classList.add("show");
+  document.getElementById("overlay").classList.add("show");
+}
+
+function closeAll() {
+  document.getElementById("drawer").classList.remove("open");
+  document.getElementById("loginModal").classList.remove("show");
+  document.getElementById("overlay").classList.remove("show");
+}
+
+function setAuthTab(tipo) {
+  authTab = tipo;
+  document.getElementById("loginTab").classList.remove("active");
+  document.getElementById("cadastroTab").classList.remove("active");
+  document.getElementById(tipo === "login" ? "loginTab" : "cadastroTab").classList.add("active");
+
+  document.getElementById("nomeAuth").style.display = tipo === "cadastro" ? "block" : "none";
+}
+
+function loginGoogleFake() {
+  loggedIn = true;
+  afterLogin();
+}
+
+function loginFake() {
+  const email = document.getElementById("emailAuth").value.trim();
+  const senha = document.getElementById("senhaAuth").value.trim();
+  const nome = document.getElementById("nomeAuth").value.trim();
+
+  if (authTab === "cadastro" && nome.length < 2) {
+    alert("Digite um nome para cadastro.");
+    return;
+  }
+
+  if (!email.includes("@") || !email.includes(".")) {
+    alert("Digite um e-mail válido.");
+    return;
+  }
+
+  if (senha.length < 4) {
+    alert("A senha precisa ter pelo menos 4 caracteres.");
+    return;
+  }
+
+  loggedIn = true;
+  afterLogin();
+}
+
+function afterLogin() {
+  document.getElementById("loginButton").style.display = "none";
+  document.getElementById("logoutButton").style.display = "inline-block";
+  document.getElementById("loginStatus").style.display = "block";
+  document.getElementById("notice").innerText = "Acesso liberado em modo demonstração. Escolha um módulo e inicie a análise.";
+  closeAll();
+
+  if (pendingModule) {
+    const moduleToOpen = pendingModule;
+    pendingModule = null;
+    openModule(moduleToOpen);
+  }
+}
+
+function logoutFake() {
+  loggedIn = false;
+  pendingModule = null;
+
+  document.getElementById("loginButton").style.display = "inline-block";
+  document.getElementById("logoutButton").style.display = "none";
+  document.getElementById("loginStatus").style.display = "none";
+  document.getElementById("notice").innerText = "Para iniciar qualquer análise, entre ou cadastre-se.";
+
+  document.querySelectorAll(".module").forEach(function(module) {
+    module.classList.remove("show");
+  });
+
+  alert("Você saiu. Os módulos foram bloqueados novamente.");
+}
+
+function requireLogin() {
+  if (!loggedIn) {
+    openLogin();
+    return false;
+  }
+  return true;
+}
+
+function needLogin(event) {
+  if (!loggedIn) {
+    event.preventDefault();
+    openLogin();
+    return false;
+  }
+  return true;
+}
+
+function arquivoSelecionado() {
+  if (!loggedIn) {
+    openLogin();
+    return;
+  }
+
+  const arquivo = document.getElementById("arquivo");
+  const note = document.getElementById("fileNote");
+
+  if (arquivo.files.length > 0) {
+    note.style.display = "block";
+    note.innerText = arquivo.files.length + " arquivo(s) adicionado(s) para análise simulada.";
+  }
+}
+
+function openModule(nome) {
+  if (!loggedIn) {
+    pendingModule = nome;
+    openLogin();
+    return;
+  }
+
+  document.querySelectorAll(".module").forEach(function(module) {
+    module.classList.remove("show");
+  });
+
+  document.querySelectorAll(".topic").forEach(function(topic) {
+    topic.classList.remove("active");
+  });
+
+  if (document.getElementById("btnConjugal")) {
+    document.getElementById("btnConjugal").classList.remove("active");
+  }
+
+  if (document.getElementById("btnEnganacao")) {
+    document.getElementById("btnEnganacao").classList.remove("active");
+  }
+
+  let id = "mod" + nome.charAt(0).toUpperCase() + nome.slice(1);
+  let modulo = document.getElementById(id);
+
+  if (!modulo) {
+    modulo = document.createElement("section");
+    modulo.id = id;
+    modulo.className = "module";
+
+    modulo.innerHTML =
+      "<h2>" + nomesModulos[nome] + "</h2>" +
+      "<p>" + descricoesModulos[nome] + "</p>" +
+      "<div class='step'>" +
+      "<div class='step-title'>Área de análise</div>" +
+      "<p>Cole a conversa, descreva a situação ou adicione observações relevantes.</p>" +
+      "<button class='action-btn black' onclick=\"analiseSimulada('" + nome + "')\">Analisar agora</button>" +
+      "<button class='action-btn gray' onclick=\"limparAnalise('" + id + "')\">Limpar análise</button>" +
+      "<button class='action-btn gray' onclick=\"exportarResumo('" + nome + "')\">Exportar resumo</button>" +
+      "</div>" +
+      "<div id='resultado-" + nome + "' class='result'>" +
+      "<div class='result-title'>Resultado simulado</div>" +
+      "<div class='result-text'>Aguardando análise.</div>" +
+      "</div>" +
+      "<div id='export-" + nome + "' class='export-box'></div>";
+
+    document.querySelector("main.app").appendChild(modulo);
+  }
+
+  modulo.classList.add("show");
+
+  document.querySelectorAll(".topic").forEach(function(topic) {
+    if (topic.innerText.toLowerCase().includes(nome.toLowerCase())) {
+      topic.classList.add("active");
+    }
+  });
+
+  if (nome === "conjugal" && document.getElementById("btnConjugal")) {
+    document.getElementById("btnConjugal").classList.add("active");
+  }
+
+  if (nome === "enganacao" && document.getElementById("btnEnganacao")) {
+    document.getElementById("btnEnganacao").classList.add("active");
+  }
+
+  document.getElementById("notice").innerText = "Módulo selecionado: " + nomesModulos[nome] + ".";
+}
+
+function analiseSimulada(nome) {
+  if (!requireLogin()) return;
+
+  const resultado = document.getElementById("resultado-" + nome);
+  const texto = document.getElementById("texto").value.trim();
+
+  if (!resultado) return;
+
+  const risco = texto.length > 120 ? "Alto" : texto.length > 30 ? "Médio" : "Baixo";
+
+  resultado.style.display = "block";
+  resultado.innerHTML =
+    "<div class='result-title'>Resultado da análise</div>" +
+    "<div class='result-text'>" +
+    "<strong>Nível de risco:</strong> " + risco + "<br><br>" +
+    "<strong>Padrões detectados:</strong> respostas evasivas, mudança de tom, ausência de clareza e possível incoerência narrativa.<br><br>" +
+    "<strong>Incoerências identificadas:</strong> pontos sem confirmação, narrativa incompleta e possíveis lacunas entre fala e comportamento.<br><br>" +
+    "<strong>Pontos de atenção:</strong> contradições, atraso seletivo, justificativas vagas, mudança súbita de comportamento e falta de sequência lógica.<br><br>" +
+    "<strong>Próxima ação sugerida:</strong> organizar prints, horários, sequência dos fatos e evitar conclusão emocional antes da comparação temporal." +
+    "</div>" +
+    "<div class='timeline'>" +
+    "<div class='timeline-item'><strong>Envio:</strong> horário declarado da mensagem inicial.</div>" +
+    "<div class='timeline-item'><strong>Entrega:</strong> verificar se houve atraso, falha ou silêncio seletivo.</div>" +
+    "<div class='timeline-item'><strong>Visualização:</strong> comparar visualização com ausência de resposta.</div>" +
+    "<div class='timeline-item'><strong>Resposta:</strong> avaliar tempo, tom e coerência.</div>" +
+    "<div class='timeline-item'><strong>Edição:</strong> observar se houve edição após visualização.</div>" +
+    "<div class='timeline-item'><strong>Tempo entre visualizar e responder:</strong> ponto crítico para análise temporal.</div>" +
+    "</div>";
+}
+
+function limparAnalise(id) {
+  const modulo = document.getElementById(id);
+  if (!modulo) return;
+
+  const resultado = modulo.querySelector(".result");
+  const exportBox = modulo.querySelector(".export-box");
+
+  if (resultado) {
+    resultado.style.display = "none";
+    resultado.innerHTML =
+      "<div class='result-title'>Resultado simulado</div>" +
+      "<div class='result-text'>Aguardando análise.</div>";
+  }
+
+  if (exportBox) {
+    exportBox.style.display = "none";
+    exportBox.innerText = "";
+  }
+
+  document.getElementById("texto").value = "";
+  document.getElementById("arquivo").value = "";
+  document.getElementById("fileNote").style.display = "none";
+}
+
+function exportarResumo(nome) {
+  if (!requireLogin()) return;
+
+  const exportBox = document.getElementById("export-" + nome);
+  const texto =
+    "REVELAÇÃO CIRÚRGICA\n\n" +
+    "Módulo: " + nomesModulos[nome] + "\n" +
+    "Nível de risco: Médio\n" +
+    "Padrões principais: respostas evasivas, incoerências e mudança de comportamento.\n" +
+    "Incoerências temporais: verificar envio, entrega, visualização, resposta, edição e tempo entre visualizar e responder.\n" +
+    "Próxima ação sugerida: organizar provas, revisar a sequência dos fatos e não concluir por impulso emocional.";
+
+  if (exportBox) {
+    exportBox.style.display = "block";
+    exportBox.innerText = texto;
+  } else {
+    alert(texto);
+  }
+}
+
+function payConjugal() {
+  if (!requireLogin()) return;
+
+  clearInterval(intervalId);
+
+  const result = document.getElementById("resultConjugal");
+  const progress = document.getElementById("conjProgress");
+  const percent = document.getElementById("conjPercent");
+  const title = document.getElementById("conjTitle");
+  const text = document.getElementById("conjText");
+
+  result.style.display = "block";
+  progress.style.width = "0%";
+  percent.innerText = "0%";
+  title.innerText = "Analisando chance de retorno";
+  text.innerText = "Cruzando tipo de relação, tempo, situação atual, sinais e histórico.";
+
+  let valor = 0;
+
+  intervalId = setInterval(function() {
+    valor += 2;
+
+    if (valor > 100) {
+      valor = 100;
+    }
+
+    progress.style.width = valor + "%";
+    percent.innerText = valor + "%";
+
+    if (valor >= 100) {
+      clearInterval(intervalId);
+
+      const situacao = document.getElementById("situacaoAtual").value;
+      let chance = 50;
+
+      if (situacao === "Ainda conversam") chance += 20;
+      if (situacao === "Dá sinais mistos") chance += 10;
+      if (situacao === "Desbloqueou recentemente") chance += 12;
+      if (situacao === "Bloqueou") chance -= 25;
+      if (situacao === "Sumiu completamente") chance -= 30;
+      if (situacao === "Diz que não quer voltar") chance -= 35;
+      if (situacao === "Está com outra pessoa") chance -= 25;
+
+      if (chance < 5) chance = 5;
+      if (chance > 98) chance = 98;
+
+      percent.innerText = chance + "%";
+      progress.style.width = chance + "%";
+
+      if (chance <= 50) {
+        title.innerText = "Chance baixa ou incerta";
+        text.innerText = "Os dados enviados indicam possibilidade baixa ou incerta de retorno neste momento. O sistema não recomenda alimentar falsa esperança sem novos sinais concretos.";
+      } else if (chance <= 74) {
+        title.innerText = "Chance moderada";
+        text.innerText = "Existem sinais mistos. Pode haver espaço para reaproximação, mas exige estratégia, postura correta e análise cuidadosa do contexto.";
+      } else {
+        title.innerText = "Chance alta";
+        text.innerText = "Os dados enviados indicam sinais relevantes de abertura ou vínculo. Ainda assim, não existe garantia de retorno, pois depende da outra pessoa e da execução correta das atitudes.";
+      }
+    }
+  }, 120);
+}
+
+function startEnganacao() {
+  if (!requireLogin()) return;
+
+  clearInterval(intervalId);
+
+  const result = document.getElementById("resultEnganacao");
+  const progress = document.getElementById("engProgress");
+  const percent = document.getElementById("engPercent");
+  const title = document.getElementById("engTitle");
+  const text = document.getElementById("engText");
+  const locked = document.getElementById("engLocked");
+
+  result.style.display = "block";
+  locked.style.display = "none";
+  progress.style.width = "0%";
+  percent.innerText = "0%";
+  title.innerText = "Análise iniciada";
+  text.innerText = "Organizando dados, sinais, contradições e contexto.";
+
+  let valor = 0;
+
+  intervalId = setInterval(function() {
+    valor++;
+    progress.style.width = valor + "%";
+    percent.innerText = valor + "%";
+
+    if (valor === 9) {
+      text.innerText = "Separando pontos de atenção e possíveis incoerências.";
+    }
+
+    if (valor === 17) {
+      text.innerText = "Comparando narrativa, provas e sinais de risco.";
+    }
+
+    if (valor >= 26) {
+      clearInterval(intervalId);
+      title.innerText = "Prévia atingiu 26%";
+      text.innerText = "Foram encontrados sinais suficientes para continuar a análise. Para visualizar a análise completa, libere o resultado.";
+      locked.style.display = "block";
+    }
+  }, 220);
+}
+
+function unlockEnganacao() {
+  if (!requireLogin()) return;
+
+  clearInterval(intervalId);
+
+  const progress = document.getElementById("engProgress");
+  const percent = document.getElementById("engPercent");
+  const title = document.getElementById("engTitle");
+  const text = document.getElementById("engText");
+  const locked = document.getElementById("engLocked");
+
+  let valor = 26;
+
+  intervalId = setInterval(function() {
+    valor += 4;
+
+    if (valor > 100) {
+      valor = 100;
+    }
+
+    progress.style.width = valor + "%";
+    percent.innerText = valor + "%";
+
+    if (valor >= 100) {
+      clearInterval(intervalId);
+      title.innerText = "Análise completa liberada";
+      text.innerText = "Resultado liberado para teste. Próxima etapa: inserir critérios definitivos, relatório completo e integração de pagamento.";
+      locked.style.display = "none";
+    }
+  }, 120);
+}
+
+function consultoria() {
+  alert("Consultoria de reaproximação: serviço sob orçamento. Não garante retorno. Depende do caso, da outra pessoa e das atitudes do cliente.");
+}
+
+function consultoriaLive() {
+  alert("Atendimento por Live: próximo passo será conectar agenda, WhatsApp ou formulário.");
+}
+
+function showInfo(tipo) {
+  const box = document.getElementById("infoBox");
+
+  const textos = {
+    sobre: "A REVELAÇÃO CIRÚRGICA organiza informações, arquivos e sinais para auxiliar análises conjugais, empresariais, pessoais, de golpe e enganação. O objetivo é buscar a verdade, sem falsa promessa.",
+    contato: "Contato: espaço reservado para WhatsApp, e-mail ou formulário.",
+    topicos: "Tópicos: Conjugal, Enganação, Golpes, Empresarial, Familiar, Pessoal e Profissional.",
+    escritorio: "Escritório: espaço reservado para estrutura profissional, atendimento e dados comerciais.",
+    duvidas: "Para tirar dúvidas, descreva a situação na Área de Análise e envie arquivos quando necessário."
+  };
+
+  box.innerText = textos[tipo];
+  box.classList.add("show");
+}
+</script>
+
 </body>
 </html>
